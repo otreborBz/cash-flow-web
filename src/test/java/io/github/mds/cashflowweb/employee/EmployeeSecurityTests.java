@@ -33,14 +33,9 @@ public class EmployeeSecurityTests {
 
     @BeforeEach
     void setup() {
-        employeeRepository.save(new Employee(
-                "employee",
-                "employee@email.com",
-                "xxx.xxx.xxx-xx",
-                passwordEncoder.encode("password"),
-                "(xx) xxxxx-xxxx",
-                "department"
-        ));
+        var employee = EmployeeFactory.createEmployee();
+        employee.setPassword(passwordEncoder.encode(employee.getPassword()));
+        employeeRepository.save(employee);
     }
 
     @AfterEach

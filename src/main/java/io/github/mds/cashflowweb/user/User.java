@@ -1,8 +1,10 @@
 package io.github.mds.cashflowweb.user;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import org.hibernate.validator.constraints.br.CPF;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -23,10 +25,12 @@ public abstract class User implements UserDetails {
     @Column(nullable = false)
     protected String name;
 
+    @Email
     @NotBlank
     @Column(nullable = false, unique = true)
     protected String email;
 
+    @CPF
     @NotBlank
     @Column(nullable = false, unique = true)
     protected String cpf;

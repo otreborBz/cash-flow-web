@@ -34,14 +34,9 @@ public class ManagerSecurityTests {
 
     @BeforeEach
     void setup() {;
-        managerRepository.save(new Manager(
-                "manager",
-                "manager@email.com",
-                "xxx.xxx.xxx-xx",
-                passwordEncoder.encode("password"),
-                "(xx) xxxxx-xxxx",
-                "department"
-        ));
+        var manager = ManagerFactory.createManager();
+        manager.setPassword(passwordEncoder.encode(manager.getPassword()));
+        managerRepository.save(manager);
     }
 
     @AfterEach
