@@ -10,6 +10,7 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static io.github.mds.cashflowweb.employee.EmployeeMatchers.employee;
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.contains;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
@@ -46,7 +47,8 @@ public class EmployeeControllerTest {
         @Test
         void doNotCreateDuplicatedEmployee() throws Exception {
             // given
-            doThrow(NonUniqueEmployeeException.class).when(employeeService).createEmployee(any(Employee.class));
+            var exception = new NonUniqueEmployeeException("email", "cpf", "phone");
+            doThrow(exception).when(employeeService).createEmployee(any(Employee.class));
             // when
             var result = client.perform(post("/employee/create")
                     .param("name", "employee")
@@ -68,6 +70,10 @@ public class EmployeeControllerTest {
                             "(xx) xxxxx-xxxx",
                             "department"
                     ))),
+                    model().attribute("duplicatedFields", is(
+                            contains("email", "cpf", "phone"))
+                    ),
+                    model().attribute("mode", "create"),
                     view().name("employee/employee-form")
             );
             verify(employeeService, times(1)).createEmployee(any(Employee.class));
@@ -148,7 +154,8 @@ public class EmployeeControllerTest {
         void retrieveFormWithEmployeeFieldsIfEmployeeHasDuplicatedFields() throws Exception {
             // given
             var updatedEmployee = EmployeeFactory.createRandomEmployee();
-            doThrow(NonUniqueEmployeeException.class).when(employeeService).updateEmployee(anyLong(), any(Employee.class));
+            var exception = new NonUniqueEmployeeException("email", "cpf", "phone");
+            doThrow(exception).when(employeeService).updateEmployee(anyLong(), any(Employee.class));
             // when
             var result = client.perform(post("/employee/update/{id}", 1L)
                     .param("name", updatedEmployee.getName())
@@ -163,6 +170,9 @@ public class EmployeeControllerTest {
             result.andExpectAll(
                     status().isOk(),
                     model().attribute("employee", is(employee(updatedEmployee))),
+                    model().attribute("duplicatedFields", is(
+                            contains("email", "cpf", "phone"))
+                    ),
                     model().attribute("mode", "edit"),
                     view().name("employee/employee-form")
             );

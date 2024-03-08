@@ -34,6 +34,7 @@ public class EmployeeController {
             employeeService.createEmployee(employee.toEntity());
         } catch (NonUniqueEmployeeException e) {
             model.addAttribute("employee", employee);
+            model.addAttribute("duplicatedFields", e.getFields());
             model.addAttribute("mode", "create");
             return "employee/employee-form";
         }
@@ -66,6 +67,7 @@ public class EmployeeController {
             employeeService.updateEmployee(id, updatedEmployee.toEntity());
         } catch (NonUniqueEmployeeException e) {
             model.addAttribute("employee", updatedEmployee);
+            model.addAttribute("duplicatedFields", e.getFields());
             model.addAttribute("mode", "edit");
             return "employee/employee-form";
         }
