@@ -146,4 +146,25 @@ public class EmployeeEndpointsTests {
 
     }
 
+    @Nested
+    class DeleteEmployeeTests {
+
+        @Test
+        void deleteEmployee() throws Exception {
+            // given
+            var id = employeeRepository.save(EmployeeFactory.createEmployee()).getId();
+            // when
+            var result = client.perform(post("/employee/delete/{id}", id)
+                    .with(csrf())
+            );
+            // then
+            result.andExpectAll(
+                    status().isFound(),
+                    redirectedUrl("/employee/list")
+            );
+            assertThat(employeeRepository.count()).isZero();
+        }
+
+    }
+
 }

@@ -191,4 +191,21 @@ public class EmployeeControllerTest {
 
     }
 
+    @Nested
+    class DeleteEmployeeTests {
+
+        @Test
+        void show404ErrorPageIfEmployeeDoesNotExists() throws Exception {
+            // given
+            doThrow(EmployeeNotFoundException.class).when(employeeService).deleteEmployee(anyLong());
+            // when
+            var result = client.perform(post("/employee/delete/{id}", 1L)
+                    .with(csrf())
+            );
+            // then
+            result.andExpect(status().isNotFound());
+        }
+
+    }
+
 }
