@@ -15,11 +15,15 @@ import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.List;
+
+import static io.github.mds.cashflowweb.employee.EmployeeMatchers.employee;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.contains;
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.csrf;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.redirectedUrl;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -77,6 +81,34 @@ public class EmployeeEndpointsTests {
                     .matches(employee -> passwordEncoder.matches("password", employee.getPassword()))
                     .extracting("name", "email", "cpf", "phone", "department")
                     .containsExactly("employee", "employee@email.com", EmployeeFactory.CPF, "(xx) xxxxx-xxxx", "department");
+        }
+
+    }
+
+    @Nested
+    class ListEmployeeTests {
+
+        @Test
+        void listEmployees() throws Exception {
+           // given
+            var employees = List.of(
+                    EmployeeFactory.createRandomEmployee(),
+                    EmployeeFactory.createRandomEmployee(),
+                    EmployeeFactory.createRandomEmployee()
+            );
+            employeeRepository.saveAll(employees);
+            // when
+            var result = client.perform(get("/employee/list"));
+            // then
+            result.andExpectAll(
+                    status().isOk(),
+                    model().attribute("employees", contains(
+                            employee(employees.get(0)),
+                            employee(employees.get(1)),
+                            employee(employees.get(2))
+                    )),
+                    view().name("employee/employee-table")
+            );
         }
 
     }

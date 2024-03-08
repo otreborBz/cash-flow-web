@@ -19,6 +19,10 @@ public final class EmployeeMatchers {
         );
     }
 
+    public static Matcher<Employee> employee(Employee employee) {
+        return employee(employee.getName(), employee.getEmail(), employee.getCpf(), employee.getPassword(), employee.getPhone(), employee.getDepartment());
+    }
+
     public static Matcher<Employee> employee() {
         return employee(null, null, null, null, null, null);
     }

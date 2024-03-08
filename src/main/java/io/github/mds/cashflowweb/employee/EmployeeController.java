@@ -43,4 +43,11 @@ public class EmployeeController {
         return "redirect:/employee/list";
     }
 
+    @GetMapping("/list")
+    public String listEmployees(Model model) {
+        var employees = employeeService.listEmployees();
+        model.addAttribute("employees", employees);
+        return "employee/employee-table";
+    }
+
 }
