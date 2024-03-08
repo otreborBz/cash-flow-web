@@ -51,7 +51,7 @@ public class EmployeeController {
     @GetMapping("/update/{id}")
     public String retrieveUpdateEmployeePage(@PathVariable("id") long id, Model model) {
         var employee = employeeService.findEmployee(id);
-        model.addAttribute("employee", employee);
+        model.addAttribute("employee", employee.toForm());
         model.addAttribute("mode", "edit");
         return "employee/employee-form";
     }

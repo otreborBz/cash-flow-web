@@ -25,6 +25,17 @@ public class EmployeeForm {
 
     private String department;
 
+    public EmployeeForm() {}
+
+    public EmployeeForm(String name, String email, String cpf, String password, String phone, String department) {
+        this.name = name;
+        this.email = email;
+        this.cpf = cpf;
+        this.password = password;
+        this.phone = phone;
+        this.department = department;
+    }
+
     public String getName() {
         return name;
     }

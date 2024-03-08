@@ -115,7 +115,7 @@ public class EmployeeControllerTest {
             // then
             result.andExpectAll(
                     status().isOk(),
-                    model().attribute("employee", is(employee(employee))),
+                    model().attribute("employee", is(employee(employee.toForm()))),
                     model().attribute("mode", "edit"),
                     view().name("employee/employee-form")
             );
