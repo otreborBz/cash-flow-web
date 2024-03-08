@@ -96,4 +96,99 @@ public class EmployeeControllerTest {
 
     }
 
+    @Nested
+    class UpdateEmployeeTests {
+
+        @Test
+        void retrieveUpdateEmployeePage() throws Exception {
+            // given
+            var employee = EmployeeFactory.createEmployee();
+            when(employeeService.findEmployee(anyLong())).thenReturn(employee);
+            // when
+            var result = client.perform(get("/employee/update/{id}", 1L));
+            // then
+            result.andExpectAll(
+                    status().isOk(),
+                    model().attribute("employee", is(employee(employee))),
+                    model().attribute("mode", "edit"),
+                    view().name("employee/employee-form")
+            );
+        }
+
+        @Test
+        void show404ErrorPageIfEmployeeDoesNotExists() throws Exception {
+            // given
+            doThrow(EmployeeNotFoundException.class).when(employeeService).findEmployee(anyLong());
+            // when
+            var result = client.perform(get("/employee/update/{id}", anyLong()));
+            // then
+            result.andExpect(status().isNotFound());
+        }
+
+        @Test
+        void show404ErrorPageIfEmployeeDoesNotExistsWhenUpdating() throws Exception {
+            // given
+            var updatedEmployee = EmployeeFactory.createRandomEmployee();
+            doThrow(EmployeeNotFoundException.class).when(employeeService).updateEmployee(anyLong(), any(Employee.class));
+            // when
+            var result = client.perform(post("/employee/update/{id}", 1L)
+                    .param("name", updatedEmployee.getName())
+                    .param("email", updatedEmployee.getEmail())
+                    .param("cpf", updatedEmployee.getCpf())
+                    .param("password", updatedEmployee.getPassword())
+                    .param("phone", updatedEmployee.getPhone())
+                    .param("department", updatedEmployee.getDepartment())
+                    .with(csrf())
+            );
+            // then
+            result.andExpect(status().isNotFound());
+        }
+
+        @Test
+        void retrieveFormWithEmployeeFieldsIfEmployeeHasDuplicatedFields() throws Exception {
+            // given
+            var updatedEmployee = EmployeeFactory.createRandomEmployee();
+            doThrow(NonUniqueEmployeeException.class).when(employeeService).updateEmployee(anyLong(), any(Employee.class));
+            // when
+            var result = client.perform(post("/employee/update/{id}", 1L)
+                    .param("name", updatedEmployee.getName())
+                    .param("email", updatedEmployee.getEmail())
+                    .param("cpf", updatedEmployee.getCpf())
+                    .param("password", updatedEmployee.getPassword())
+                    .param("phone", updatedEmployee.getPhone())
+                    .param("department", updatedEmployee.getDepartment())
+                    .with(csrf())
+            );
+            // then
+            result.andExpectAll(
+                    status().isOk(),
+                    model().attribute("employee", is(employee(updatedEmployee))),
+                    model().attribute("mode", "edit"),
+                    view().name("employee/employee-form")
+            );
+        }
+
+        @Test
+        void doNotUpdateEmployeeWithInvalidFields() throws Exception {
+            // when
+            var result = client.perform(post("/employee/update/{id}", 1L)
+                    .param("name", "")
+                    .param("email", "")
+                    .param("cpf", "")
+                    .param("password", "")
+                    .param("phone", "")
+                    .param("department", "")
+                    .with(csrf())
+            );
+            // then
+            result.andExpectAll(
+                    status().isOk(),
+                    model().attribute("employee", is(employee("", "", "", "", "", ""))),
+                    model().attribute("mode", "edit"),
+                    view().name("employee/employee-form")
+            );
+        }
+
+    }
+
 }

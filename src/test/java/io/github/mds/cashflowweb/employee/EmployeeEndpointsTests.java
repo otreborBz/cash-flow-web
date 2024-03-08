@@ -113,4 +113,37 @@ public class EmployeeEndpointsTests {
 
     }
 
+    @Nested
+    class UpdateEmployee {
+
+        @Test
+        void updateEmployee() throws Exception {
+            // given
+            var id = employeeRepository.save(EmployeeFactory.createEmployee()).getId();
+            var updatedEmployee = EmployeeFactory.createRandomEmployee();
+            // when
+            var result = client.perform(post("/employee/update/{id}", id)
+                    .param("name", updatedEmployee.getName())
+                    .param("email", updatedEmployee.getEmail())
+                    .param("cpf", updatedEmployee.getCpf())
+                    .param("password", updatedEmployee.getPassword())
+                    .param("phone", updatedEmployee.getPhone())
+                    .param("department", updatedEmployee.getDepartment())
+                    .with(csrf())
+            );
+            // then
+            result.andExpectAll(
+                    status().isFound(),
+                    redirectedUrl("/employee/list")
+            );
+            var optionalEmployee = employeeRepository.findByEmail(updatedEmployee.getEmail());
+            assertThat(optionalEmployee).get()
+                    .matches(employee -> passwordEncoder.matches(updatedEmployee.getPassword(), employee.getPassword()))
+                    .usingRecursiveComparison()
+                    .ignoringFields("id", "password")
+                    .isEqualTo(updatedEmployee);
+        }
+
+    }
+
 }

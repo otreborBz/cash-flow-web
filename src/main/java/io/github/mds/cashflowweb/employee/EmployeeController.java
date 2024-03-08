@@ -4,10 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/employee")
@@ -48,6 +45,31 @@ public class EmployeeController {
         var employees = employeeService.listEmployees();
         model.addAttribute("employees", employees);
         return "employee/employee-table";
+    }
+
+    @GetMapping("/update/{id}")
+    public String retrieveUpdateEmployeePage(@PathVariable("id") long id, Model model) {
+        var employee = employeeService.findEmployee(id);
+        model.addAttribute("employee", employee);
+        model.addAttribute("mode", "edit");
+        return "employee/employee-form";
+    }
+
+    @PostMapping("/update/{id}")
+    public String updateEmployee(@PathVariable("id") long id, @Valid @ModelAttribute("employee") EmployeeForm updatedEmployee, BindingResult result, Model model) {
+        if (result.hasErrors()) {
+            model.addAttribute("employee", updatedEmployee);
+            model.addAttribute("mode", "edit");
+            return "employee/employee-form";
+        }
+        try {
+            employeeService.updateEmployee(id, updatedEmployee.toEntity());
+        } catch (NonUniqueEmployeeException e) {
+            model.addAttribute("employee", updatedEmployee);
+            model.addAttribute("mode", "edit");
+            return "employee/employee-form";
+        }
+        return "redirect:/employee/list";
     }
 
 }
