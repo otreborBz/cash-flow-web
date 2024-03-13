@@ -50,6 +50,13 @@ public class TravelControllerTests {
     }
 
     @Nested
+    class FindTravelTests {
+
+        // TODO: implement test case when travel doesn't exists
+
+    }
+
+    @Nested
     class UpdateTravelTests {
 
         // TODO: fix this test, probably by configuring security

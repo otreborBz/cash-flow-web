@@ -14,4 +14,14 @@ public final class TravelMatchers {
         );
     }
 
+    public static Map<String, String> fullTravel(Travel travel) {
+        return Map.of(
+                "startDate", travel.getStartDate().toString(),
+                "endDate", travel.getEndDate().toString(),
+                "origin", travel.getOrigin(),
+                "destination", travel.getDestination(),
+                "description", travel.getDescription()
+        );
+    }
+
 }

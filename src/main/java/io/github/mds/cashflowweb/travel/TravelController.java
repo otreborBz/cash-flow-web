@@ -35,6 +35,12 @@ public class TravelController {
         return ResponseEntity.ok(travels);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> findTravel(@PathVariable("id") long id, @AuthenticationPrincipal Employee employee) {
+        var travel = travelService.findTravel(id, employee);
+        return ResponseEntity.ok(travel.toFullResponse());
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<?> updateTravel(@PathVariable("id") long id, @Valid @RequestBody TravelRequest updatedTravel, @AuthenticationPrincipal Employee employee) {
         travelService.updateTravel(id, updatedTravel.toEntity(), employee);

@@ -21,10 +21,10 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
 
+import static io.github.mds.cashflowweb.travel.TravelMatchers.fullTravel;
 import static io.github.mds.cashflowweb.travel.TravelMatchers.travel;
 import static org.assertj.core.api.Assertions.*;
-import static org.hamcrest.Matchers.contains;
-import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
@@ -133,6 +133,25 @@ public class TravelEndpointsTests {
                             travel(travels.get(1)),
                             travel(travels.get(2))
                     ))
+            );
+        }
+
+    }
+
+    @Nested
+    class FindTravelTests {
+
+        @Test
+        void findTravel() throws Exception {
+            // given
+            var travel = travelRepository.save(TravelFactory.createRandomTravel(employee));
+            // when
+            var result = client.perform(get("/api/travels/{id}", travel.getId()));
+            // then
+            result.andExpectAll(
+                    status().isOk(),
+                    content().contentType(MediaType.APPLICATION_JSON),
+                    jsonPath("$", is(fullTravel(travel)))
             );
         }
 

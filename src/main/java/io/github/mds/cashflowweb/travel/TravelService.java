@@ -26,6 +26,12 @@ public class TravelService {
         return travelRepository.findAllByEmployee(employee);
     }
 
+    @Transactional(readOnly = true)
+    public Travel findTravel(long id, Employee employee) {
+        return travelRepository.findByIdAndEmployee(id, employee)
+                .orElseThrow(TravelNotFoundException::new);
+    }
+
     @Transactional
     public void updateTravel(long id, Travel updatedTravel, Employee employee) {
         var travel = travelRepository.findByIdAndEmployee(id, employee)
