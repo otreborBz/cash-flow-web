@@ -25,8 +25,7 @@ import static io.github.mds.cashflowweb.travel.TravelMatchers.travel;
 import static org.assertj.core.api.Assertions.*;
 import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsString;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
@@ -135,6 +134,50 @@ public class TravelEndpointsTests {
                             travel(travels.get(2))
                     ))
             );
+        }
+
+    }
+
+    @Nested
+    class UpdateTravelTests {
+
+        @Test
+        void updateTravel() throws Exception {
+            // given
+            var id = travelRepository.save(TravelFactory.createTravel(employee)).getId();
+            var updatedTravel = TravelFactory.createRandomTravelRequest();
+            // when
+            var result = client.perform(put("/api/travels/{id}", id)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(mapper.writeValueAsString(updatedTravel))
+            );
+            // then
+            result.andExpect(status().isNoContent());
+            var possibleTravel = travelRepository.findAll().getFirst();
+            assertThat(possibleTravel).isNotNull()
+                    .extracting(
+                            "startDate",
+                            "endDate",
+                            "origin",
+                            "destination",
+                            "description",
+                            "budget",
+                            "itinerary",
+                            "status",
+                            "employee.email"
+                    )
+                    .usingRecursiveFieldByFieldElementComparator()
+                    .containsExactlyInAnyOrder(
+                            updatedTravel.startDate(),
+                            updatedTravel.endDate(),
+                            updatedTravel.origin(),
+                            updatedTravel.destination(),
+                            updatedTravel.description(),
+                            updatedTravel.budget(),
+                            updatedTravel.itinerary(),
+                            TravelStatus.SCHEDULED,
+                            employee.getEmail()
+                    );
         }
 
     }

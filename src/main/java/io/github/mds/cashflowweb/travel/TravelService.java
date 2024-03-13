@@ -26,4 +26,18 @@ public class TravelService {
         return travelRepository.findAllByEmployee(employee);
     }
 
+    @Transactional
+    public void updateTravel(long id, Travel updatedTravel, Employee employee) {
+        var travel = travelRepository.findByIdAndEmployee(id, employee)
+                .orElseThrow(TravelNotFoundException::new);
+        travel.setStartDate(updatedTravel.getStartDate());
+        travel.setEndDate(updatedTravel.getEndDate());
+        travel.setOrigin(updatedTravel.getOrigin());
+        travel.setDestination(updatedTravel.getDestination());
+        travel.setDescription(updatedTravel.getDescription());
+        travel.setBudget(updatedTravel.getBudget());
+        travel.setItinerary(updatedTravel.getItinerary());
+        travelRepository.save(travel);
+    }
+
 }

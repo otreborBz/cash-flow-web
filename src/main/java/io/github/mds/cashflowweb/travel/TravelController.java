@@ -5,10 +5,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Controller
@@ -36,6 +33,12 @@ public class TravelController {
                 .map(Travel::toResponse)
                 .toList();
         return ResponseEntity.ok(travels);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateTravel(@PathVariable("id") long id, @Valid @RequestBody TravelRequest updatedTravel, @AuthenticationPrincipal Employee employee) {
+        travelService.updateTravel(id, updatedTravel.toEntity(), employee);
+        return ResponseEntity.noContent().build();
     }
 
 }

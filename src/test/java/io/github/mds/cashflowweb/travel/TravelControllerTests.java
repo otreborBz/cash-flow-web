@@ -2,6 +2,7 @@ package io.github.mds.cashflowweb.travel;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.mds.cashflowweb.NoSecurityConfiguration;
+import io.github.mds.cashflowweb.employee.Employee;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +12,11 @@ import org.springframework.context.annotation.Import;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.Mockito.doThrow;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(TravelController.class)
@@ -28,7 +33,7 @@ public class TravelControllerTests {
     private TravelService travelService;
 
     @Nested
-    class CreateEmployeeTests {
+    class CreateTravelTests {
 
         @Test
         void doNotCreateTravelWithInvalidFields() throws Exception {
@@ -41,6 +46,26 @@ public class TravelControllerTests {
             );
             // then
             result.andExpect(status().isBadRequest());
+        }
+
+    }
+
+    @Nested
+    class UpdateTravelTests {
+
+        // TODO: fix this test, probably by configuring security
+        @Test
+        void doNotUpdateNonexistentTravel() throws Exception {
+            // given
+            var travel = TravelFactory.createRandomTravelRequest();
+            doThrow(TravelNotFoundException.class).when(travelService).updateTravel(anyLong(), any(Travel.class), any(Employee.class));
+            // when
+            var result = client.perform(put("/api/travels/{id}", 1L)
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .content(mapper.writeValueAsString(travel))
+            );
+            // then
+            result.andExpect(status().isNotFound());
         }
 
     }
