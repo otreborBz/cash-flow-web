@@ -182,4 +182,20 @@ public class TravelEndpointsTests {
 
     }
 
+    @Nested
+    class DeleteTravelTests {
+
+        @Test
+        void deleteTravel() throws Exception {
+            // given
+            var id = travelRepository.save(TravelFactory.createTravel(employee)).getId();
+            // when
+            var result = client.perform(delete("/api/travels/{id}", id));
+            // then
+            result.andExpect(status().isNoContent());
+            assertThat(travelRepository.count()).isZero();
+        }
+
+    }
+
 }

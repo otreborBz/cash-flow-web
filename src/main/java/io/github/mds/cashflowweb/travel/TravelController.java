@@ -41,4 +41,10 @@ public class TravelController {
         return ResponseEntity.noContent().build();
     }
 
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteTravel(@PathVariable("id") long id, @AuthenticationPrincipal Employee employee) {
+        travelService.deleteTravel(id, employee);
+        return ResponseEntity.noContent().build();
+    }
+
 }

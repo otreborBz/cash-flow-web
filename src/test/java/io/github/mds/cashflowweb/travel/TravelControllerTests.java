@@ -15,8 +15,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
 import static org.mockito.Mockito.doThrow;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @WebMvcTest(TravelController.class)
@@ -64,6 +63,22 @@ public class TravelControllerTests {
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(mapper.writeValueAsString(travel))
             );
+            // then
+            result.andExpect(status().isNotFound());
+        }
+
+    }
+
+    @Nested
+    class DeleteTravelTests {
+
+        // TODO: fix this test, probably by configuring security
+        @Test
+        void doNotDeleteNonexistentTravel() throws Exception {
+            // given
+            doThrow(TravelNotFoundException.class).when(travelService).deleteTravel(anyLong(), any(Employee.class));
+            // when
+            var result = client.perform(delete("/api/travels/{id}", 1));
             // then
             result.andExpect(status().isNotFound());
         }

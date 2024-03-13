@@ -40,4 +40,12 @@ public class TravelService {
         travelRepository.save(travel);
     }
 
+    @Transactional
+    public void deleteTravel(long id, Employee employee) {
+        if (!travelRepository.existsByIdAndEmployee(id, employee)) {
+            throw new TravelNotFoundException();
+        }
+        travelRepository.deleteByIdAndEmployee(id, employee);
+    }
+
 }
