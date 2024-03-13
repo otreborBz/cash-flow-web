@@ -19,11 +19,15 @@ import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.List;
+
+import static io.github.mds.cashflowweb.travel.TravelMatchers.travel;
 import static org.assertj.core.api.Assertions.*;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsString;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -103,6 +107,34 @@ public class TravelEndpointsTests {
                             TravelStatus.SCHEDULED,
                             employee.getEmail()
                     );
+        }
+
+    }
+
+    @Nested
+    class ListTravelsTests {
+
+        @Test
+        void listTravels() throws Exception {
+            // given
+            var travels = List.of(
+                    TravelFactory.createRandomTravel(employee),
+                    TravelFactory.createRandomTravel(employee),
+                    TravelFactory.createRandomTravel(employee)
+            );
+            travelRepository.saveAll(travels);
+            // when
+            var result = client.perform(get("/api/travels"));
+            // then
+            result.andExpectAll(
+                    status().isOk(),
+                    content().contentType(MediaType.APPLICATION_JSON),
+                    jsonPath("$", contains(
+                            travel(travels.get(0)),
+                            travel(travels.get(1)),
+                            travel(travels.get(2))
+                    ))
+            );
         }
 
     }

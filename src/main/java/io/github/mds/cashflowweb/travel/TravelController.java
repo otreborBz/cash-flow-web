@@ -5,6 +5,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -27,6 +28,14 @@ public class TravelController {
                 .buildAndExpand(id)
                 .toUri();
         return ResponseEntity.created(location).build();
+    }
+
+    @GetMapping
+    public ResponseEntity<?> listTravels(@AuthenticationPrincipal Employee employee) {
+        var travels = travelService.listTravels(employee).stream()
+                .map(Travel::toResponse)
+                .toList();
+        return ResponseEntity.ok(travels);
     }
 
 }

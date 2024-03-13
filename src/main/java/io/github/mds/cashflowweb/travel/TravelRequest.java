@@ -28,7 +28,8 @@ public record TravelRequest(
                 description,
                 budget,
                 itinerary,
-                TravelStatus.SCHEDULED
+                TravelStatus.SCHEDULED,
+                null
         );
     }
 

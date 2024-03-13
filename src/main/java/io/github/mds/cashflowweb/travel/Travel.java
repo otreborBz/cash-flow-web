@@ -57,7 +57,7 @@ public class Travel {
 
     public Travel() {}
 
-    public Travel(LocalDate startDate, LocalDate endDate, String origin, String destination, String description, BigDecimal budget, List<String> itinerary, TravelStatus status) {
+    public Travel(LocalDate startDate, LocalDate endDate, String origin, String destination, String description, BigDecimal budget, List<String> itinerary, TravelStatus status, Employee employee) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.origin = origin;
@@ -66,6 +66,7 @@ public class Travel {
         this.budget = budget;
         this.itinerary = itinerary;
         this.status = status;
+        this.employee = employee;
     }
 
     public Long getId() {
@@ -142,6 +143,10 @@ public class Travel {
 
     public Employee getEmployee() {
         return employee;
+    }
+
+    public TravelResponse toResponse() {
+        return new TravelResponse(startDate, destination, description);
     }
 
 }
