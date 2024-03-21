@@ -131,6 +131,8 @@ public class ExpenseEndpointsTests {
 
     // TODO: implement tests for find expense
 
+    // TODO: implement tests for update expense fiscal note
+
     // TODO: implement tests for delete expense
 
 }

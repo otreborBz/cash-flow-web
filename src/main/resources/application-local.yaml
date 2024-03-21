@@ -7,6 +7,10 @@ spring:
   jpa:
     hibernate.ddl-auto: create-drop
     database-platform: org.hibernate.dialect.H2Dialect
+  servlet:
+    multipart:
+      max-file-size: 5MB
+      max-request-size: 5MB
 
 logging:
   level:

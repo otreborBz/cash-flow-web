@@ -6,7 +6,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.util.UriComponentsBuilder;
+
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/api/travels/{travelId}/expenses")
@@ -36,9 +39,15 @@ public class ExpenseController {
     }
 
     @GetMapping("/{expenseId}")
-    public ResponseEntity<?> findTravel(@PathVariable("travelId") long travelId, @PathVariable("expenseId") long expenseId, @AuthenticationPrincipal Employee employee) {
+    public ResponseEntity<?> findExpense(@PathVariable("travelId") long travelId, @PathVariable("expenseId") long expenseId, @AuthenticationPrincipal Employee employee) {
         var expense = expenseService.findExpense(travelId, expenseId, employee);
         return ResponseEntity.ok(expense.toFullResponse());
+    }
+
+    @PutMapping("/{expenseId}/fiscalNote")
+    public ResponseEntity<?> updateExpenseFiscalNote(@PathVariable("travelId") long travelId, @PathVariable("expenseId") long expenseId, @RequestParam("fiscalNote") MultipartFile fiscalNote, @AuthenticationPrincipal Employee employee) throws IOException {
+        expenseService.updateExpenseFiscalNote(travelId, expenseId, fiscalNote, employee);
+        return ResponseEntity.noContent().build();
     }
 
     @DeleteMapping("/{expenseId}")

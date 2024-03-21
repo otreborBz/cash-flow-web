@@ -5,7 +5,9 @@ import io.github.mds.cashflowweb.travel.TravelNotFoundException;
 import io.github.mds.cashflowweb.travel.TravelRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.List;
 
 @Service
@@ -39,6 +41,17 @@ public class ExpenseService {
         }
         return expenseRepository.findById(expenseId)
                 .orElseThrow(ExpenseNotFoundException::new);
+    }
+
+    @Transactional
+    public void updateExpenseFiscalNote(long travelId, long expenseId, MultipartFile fiscalNote, Employee employee) throws IOException {
+        if (!travelRepository.existsByIdAndEmployee(travelId, employee)) {
+            throw new TravelNotFoundException();
+        }
+        var expense = expenseRepository.findById(expenseId)
+                .orElseThrow(ExpenseNotFoundException::new);
+        expense.setFiscalNote(fiscalNote.getBytes());
+        expenseRepository.save(expense);
     }
 
     @Transactional
