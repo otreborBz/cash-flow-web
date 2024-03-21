@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.github.mds.cashflowweb.employee.Employee;
 import io.github.mds.cashflowweb.employee.EmployeeFactory;
 import io.github.mds.cashflowweb.employee.EmployeeRepository;
+import io.github.mds.cashflowweb.travel.Travel;
 import io.github.mds.cashflowweb.travel.TravelFactory;
 import io.github.mds.cashflowweb.travel.TravelRepository;
 import org.junit.jupiter.api.AfterEach;
@@ -20,11 +21,17 @@ import org.springframework.security.test.context.support.WithUserDetails;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
+import java.util.List;
+
+import static io.github.mds.cashflowweb.expense.ExpenseMatchers.expense;
+import static io.github.mds.cashflowweb.travel.TravelMatchers.travel;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.hamcrest.Matchers.contains;
 import static org.hamcrest.Matchers.containsString;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.header;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 @SpringBootTest
 @ActiveProfiles("test")
@@ -50,13 +57,14 @@ public class ExpenseEndpointsTests {
     @Autowired
     private ExpenseRepository expenseRepository;
 
-    private Employee employee;
+    private Travel travel;
 
     @BeforeEach
     void setup() {
-        employee = EmployeeFactory.createEmployee();
+        var employee = EmployeeFactory.createEmployee();
         employee.setPassword(passwordEncoder.encode(employee.getPassword()));
         employeeRepository.save(employee);
+        travel = travelRepository.save(TravelFactory.createTravel(employee));
     }
 
     @AfterEach
@@ -69,25 +77,54 @@ public class ExpenseEndpointsTests {
     @Nested
     class CreateExpenseTests {
 
+        // TODO: fix this test
         @Test
         void createExpense() throws Exception {
             // given
-            var travelId = travelRepository.save(TravelFactory.createTravel(employee)).getId();
             var expense = ExpenseFactory.createExpenseRequest();
             // when
-            var result = client.perform(post("/api/travels/{travelId}/expenses", travelId)
+            var result = client.perform(post("/api/travels/{travelId}/expenses", travel.getId())
                     .contentType(MediaType.APPLICATION_JSON)
                     .content(mapper.writeValueAsString(expense))
             );
             // then
             result.andExpectAll(
                     status().isCreated(),
-                    header().string("Location", containsString("/api/travels/" + travelId + "/expenses"))
+                    header().string("Location", containsString("/api/travels/" + travel.getId() + "/expenses"))
             );
             var possibleExpense = expenseRepository.findAll().getFirst();
             assertThat(possibleExpense).isNotNull()
                     .extracting("description", "category", "amount", "location", "travel.id")
-                    .contains(expense.description(), expense.category(), expense.amount(), expense.location(), travelId);
+                    .contains(expense.description(), expense.category(), expense.amount(), expense.location(), travel.getId());
+        }
+
+    }
+
+    // TODO: fix this test
+    @Nested
+    class ListExpensesTests {
+
+        @Test
+        void listExpenses() throws Exception {
+            // given
+            var expenses = List.of(
+                    ExpenseFactory.createRandomExpense(travel),
+                    ExpenseFactory.createRandomExpense(travel),
+                    ExpenseFactory.createRandomExpense(travel)
+            );
+            expenseRepository.saveAll(expenses);
+            // when
+            var result = client.perform(get("/api/travels/{travelId}/expenses", travel.getId()));
+            // then
+            result.andExpectAll(
+                    status().isOk(),
+                    content().contentType(MediaType.APPLICATION_JSON),
+                    jsonPath("$", contains(
+                            expense(expenses.get(0)),
+                            expense(expenses.get(1)),
+                            expense(expenses.get(2))
+                    ))
+            );
         }
 
     }

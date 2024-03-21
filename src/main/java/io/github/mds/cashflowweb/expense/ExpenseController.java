@@ -5,10 +5,7 @@ import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
 @Controller
@@ -28,6 +25,14 @@ public class ExpenseController {
                 .buildAndExpand(expenseId)
                 .toUri();
         return ResponseEntity.created(location).build();
+    }
+
+    @GetMapping
+    public ResponseEntity<?> listExpenses(@PathVariable("travelId") long travelId, @AuthenticationPrincipal Employee employee) {
+        var expenses = expenseService.listExpenses(travelId, employee).stream()
+                .map(Expense::toResponse)
+                .toList();
+        return ResponseEntity.ok(expenses);
     }
 
 }

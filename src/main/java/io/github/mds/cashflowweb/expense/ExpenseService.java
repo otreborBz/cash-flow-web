@@ -6,6 +6,8 @@ import io.github.mds.cashflowweb.travel.TravelRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 public class ExpenseService {
 
@@ -23,6 +25,11 @@ public class ExpenseService {
                 .orElseThrow(TravelNotFoundException::new);
         expense.setTravel(travel);
         return expenseRepository.save(expense).getId();
+    }
+
+    @Transactional(readOnly = true)
+    public List<Expense> listExpenses(long travelId, Employee employee) {
+        return expenseRepository.findAllByTravelIdAndTravelEmployee(travelId, employee);
     }
 
 }

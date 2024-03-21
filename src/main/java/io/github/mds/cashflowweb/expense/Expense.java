@@ -112,4 +112,8 @@ public class Expense {
         this.travel = travel;
     }
 
+    public ExpenseResponse toResponse() {
+        return new ExpenseResponse(description, amount);
+    }
+
 }
