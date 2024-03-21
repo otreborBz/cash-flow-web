@@ -35,4 +35,10 @@ public class ExpenseController {
         return ResponseEntity.ok(expenses);
     }
 
+    @DeleteMapping("/{expenseId}")
+    public ResponseEntity<?> deleteExpense(@PathVariable("travelId") long travelId, @PathVariable("expenseId") long expenseId, @AuthenticationPrincipal Employee employee) {
+        expenseService.deleteExpense(travelId, expenseId, employee);
+        return ResponseEntity.noContent().build();
+    }
+
 }
