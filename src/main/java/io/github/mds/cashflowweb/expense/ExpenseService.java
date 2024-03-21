@@ -32,6 +32,15 @@ public class ExpenseService {
         return expenseRepository.findAllByTravelIdAndTravelEmployee(travelId, employee);
     }
 
+    @Transactional(readOnly = true)
+    public Expense findExpense(long travelId, long expenseId, Employee employee) {
+        if (!travelRepository.existsByIdAndEmployee(travelId, employee)) {
+            throw new TravelNotFoundException();
+        }
+        return expenseRepository.findById(expenseId)
+                .orElseThrow(ExpenseNotFoundException::new);
+    }
+
     @Transactional
     public void deleteExpense(long travelId, long expenseId, Employee employee) {
         if (!travelRepository.existsByIdAndEmployee(travelId, employee)) {

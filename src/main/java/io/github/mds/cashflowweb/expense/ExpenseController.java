@@ -35,6 +35,12 @@ public class ExpenseController {
         return ResponseEntity.ok(expenses);
     }
 
+    @GetMapping("/{expenseId}")
+    public ResponseEntity<?> findTravel(@PathVariable("travelId") long travelId, @PathVariable("expenseId") long expenseId, @AuthenticationPrincipal Employee employee) {
+        var expense = expenseService.findExpense(travelId, expenseId, employee);
+        return ResponseEntity.ok(expense.toFullResponse());
+    }
+
     @DeleteMapping("/{expenseId}")
     public ResponseEntity<?> deleteExpense(@PathVariable("travelId") long travelId, @PathVariable("expenseId") long expenseId, @AuthenticationPrincipal Employee employee) {
         expenseService.deleteExpense(travelId, expenseId, employee);

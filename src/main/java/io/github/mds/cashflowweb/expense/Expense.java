@@ -116,4 +116,8 @@ public class Expense {
         return new ExpenseResponse(description, amount);
     }
 
+    public FullExpenseResponse toFullResponse() {
+        return new FullExpenseResponse(amount, category, location, description);
+    }
+
 }

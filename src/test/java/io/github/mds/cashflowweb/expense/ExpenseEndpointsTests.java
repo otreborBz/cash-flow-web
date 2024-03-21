@@ -129,6 +129,8 @@ public class ExpenseEndpointsTests {
 
     }
 
+    // TODO: implement tests for find expense
+
     // TODO: implement tests for delete expense
 
 }
