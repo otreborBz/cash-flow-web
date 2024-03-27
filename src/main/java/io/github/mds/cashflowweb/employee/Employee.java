@@ -13,6 +13,10 @@ public class Employee extends User {
         super(null, name, email, cpf, password, phone, Role.EMPLOYEE, department);
     }
 
+    public Employee(Long id) {
+        this.id = id;
+    }
+
     public EmployeeForm toForm() {
         return new EmployeeForm(name, email, cpf, null, phone, department);
     }

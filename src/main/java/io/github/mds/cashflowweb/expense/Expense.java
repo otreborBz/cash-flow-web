@@ -6,6 +6,8 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -39,6 +41,7 @@ public class Expense {
     private byte[] fiscalNote;
 
     @ManyToOne(optional = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private Travel travel;
 
     public Expense() {}
@@ -113,11 +116,11 @@ public class Expense {
     }
 
     public ExpenseResponse toResponse() {
-        return new ExpenseResponse(description, amount);
+        return new ExpenseResponse(id, description, amount);
     }
 
     public FullExpenseResponse toFullResponse() {
-        return new FullExpenseResponse(amount, category, location, description);
+        return new FullExpenseResponse(id, amount, category, location, description);
     }
 
 }

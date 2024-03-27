@@ -146,11 +146,12 @@ public class Travel {
     }
 
     public TravelResponse toResponse() {
-        return new TravelResponse(startDate, destination, description);
+        return new TravelResponse(id, startDate, destination, description);
     }
 
     public FullTravelResponse toFullResponse() {
         return new FullTravelResponse(
+                id,
                 startDate,
                 endDate,
                 origin,
