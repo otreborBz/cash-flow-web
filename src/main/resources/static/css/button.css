@@ -1,0 +1,36 @@
+@import url("colors.css");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/*Apenas colocar o botao como classe button para utilizar*/
+.button{
+    font-family: 'Roboto',sans-serif;
+    display: flex;
+    background-color: var(--azul);
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    color: var(--branco);
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.button:hover{
+    background-color: var(--azul-variavel);
+}
+
+/*Apenas colocar o botao como classe button-vermelho para utilizar*/
+.button_vermelho{
+    display: flex;
+    background-color: var(--vermelho);
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 4px;
+    color: var(--branco);
+    padding: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.button_vermelho:hover{
+    background-color: var(--vermelho-variavel);
+}

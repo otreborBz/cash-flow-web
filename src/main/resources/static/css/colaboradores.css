@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root{
+    --azul:#4660AC;
+    --azul-variavel:#4660ace0;
+    --amarelo:#F2CB05;
+    --vermelho:#BE3F3F;
+    --cinza:#D9D9D9;
+    --verde: rgb(57, 157, 57);
+}
+
+body{
+    background-color: var(--cinza);
+}
+#titulo{
+    height: 50px;
+    margin-top: 5px;
+    
+}
+
+#linha1{
+    display: flex;
+    flex-direction: row;
+    padding: 2px;
+    background-color: var(--branco);
+}
+
+
+.container1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+.adicionar{
+    display: flex;
+    margin-top: 5px;
+    margin-left: 15px;
+    
+}
+#box_pesquisa{
+    display: flex;
+    flex-direction: row;
+    margin-left: 30%;
+    width: 100%;
+}
+
+
+.busca{
+    font-family: 'Roboto'sans-serif;
+    font-weight: bold;
+    width: 100px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#pesquisa{
+    width: 60%;
+    height: 30px;
+    margin-top: 10px;
+    border: 2px solid var(--azul);
+    border-radius: 4px;
+    padding-left: 5px;
+}
+
+#lista-colaboradores{
+    border-radius: 5px;
+    height: 71vh;
+    background-color: var(--branco);
+    overflow: auto;
+}
+
+#lista-colaboradores::-webkit-scrollbar{
+    width: 2px;
+    height: 2px;
+}
+#lista-colaboradores::-webkit-scrollbar-thumb {
+    background-color: black;
+}
+#lista-colaboradores::-webkit-scrollbar-track {
+    background-color: var(--cinza);
+}
+
+
+#colaborador{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+    border-radius: 5px;
+    height: 50px;
+    box-shadow: 3px 3px 9px rgb(152, 152, 152);
+}
+
+#nome-colaborador{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 80%;
+    background-color: var(--cinza);
+    border-radius: 3px;
+    margin-left: 10px;
+    margin-right: 30px;
+}
+#opcoes{
+    display: flex;
+    flex-direction: row;
+}
+
+.editar{
+    height: 15px;
+}
+
+.deletar{
+    margin-left: 10px;
+}

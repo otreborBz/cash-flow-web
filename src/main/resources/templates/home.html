@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/home.css}">
+    <link rel="stylesheet" th:href="@{/css/colors.css}">
+    <link rel="stylesheet" th:href="@{/css/header.css}">
+    <link rel="stylesheet" th:href="@{/js/home.js}">
+    <link rel="shotcut icon" href="_img/Logo_CashFlow.png">
+    <title>Cash Flow</title>
+</head>
+<body>
+<header>
+    <div><a th:href="@{/home}"><img id="logo" th:src="@{/img/Logo_CashFlow.png}" alt=""></a></div>
+    <div id="buttons">
+        <a class="button header" th:href="@{/home}">Inicio</a>
+        <a class="button header" th:href="@{/travel/list}">Viagens</a>
+        <a class="button header" th:href="@{/employee/list}">Colaboradores</a>
+        <div class="menu" id="menu">
+            <button class="button drop" onclick="toggleSubMenu()"><img th:src="@{/img/justify (1).svg}"></button>
+            <ul id="submenu">
+                <form th:action="@{/logout}" method="post">
+                    <button class="button_vermelho">sair</button>
+                </form>
+            </ul>
+        </div>
+    </div>
+</header>
+
+<section id="conteiners">
+    <!-- Informaçoes sobre as Viagens -->
+    <div class="conteiner left">
+        <h2 id="txt-left" >Viagens cadastradas</h2>
+        <form id="bottons-left" > <!--TODO: mudar <button> para <a>--->
+            <button class="button topo" type="button">Todas</button>
+            <button class="button topo" type="button">Andamento</button>
+            <button class="button topo" type="button">Espera</button>
+            <button class="button topo" type="button">Concluida</button>
+        </form>
+        <div class="lista">
+            <div id="viagem">
+               <div th:each="travel : ${travels}" th:text="${travel.description}"></div>
+            </div>
+        </div>
+
+
+    </div>
+    <!-- Informaçoes sobre os colaboradores  -->
+    <div class="conteiner right">
+        <h2 id="txt-right">Colaboradores Cadastrados</h2>
+        <div id="campo-right">
+            <input type="text" id="busca" name="busca" placeholder="Insira um nome para busca">
+            <button class="button busca" type="button">Buscar</button>
+        </div>
+        <div class="lista">
+            <div th:each="employee : ${employees}" th:text="${employee.name}"></div>
+        </div>
+    </div>
+</section>
+
+<!-- link do javaScrip -->
+<script src="js/header.js"></script>
+</body>
+</html>

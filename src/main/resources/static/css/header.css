@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url("colors.css");
+@import url("button.css");
+
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+}
+
+header{
+    background-color: var(--branco);
+    display: flex;
+    flex-direction: row;
+    padding: 2px;
+}
+
+#logo{
+    width: 55px;
+
+}
+
+.header{
+    height: 20px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#buttons{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    margin-left: 60%;
+    justify-content: space-between;
+    
+}
+
+.drop{
+    margin-top: 5px;
+    margin-left: 10px;
+    height: 40px;
+}
+
+.menu {
+    position: relative;
+    display: inline-block;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: none; /* Oculta os submenus por padrão */
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.menu ul li {
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.menu ul li:hover {
+    background-color: #ddd;
+}

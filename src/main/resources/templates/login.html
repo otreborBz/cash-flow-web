@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+    <link rel="shotcut icon" th:href="@{/img/Logo_CashFlow.png}">
+    <link rel="stylesheet" th:href="@{/css/colors.css}">
+    <link rel="stylesheet" th:href="@{/css/button.css}">
+    <title>Cash Flow</title>
+</head>
+
+<body>
+
+<img id="inferior" th:src="@{/img/bolas.png}" alt="">
+<img id="superior" th:src="@{/img/bolas 2.png}" alt="">
+<img id="imgLogo" th:src="@{/img/Logo_CashFlow.png}" alt="">
+<img id="textLogo" th:src="@{/img/Cash Flow.png}" alt="">
+<form th:action="@{/login}" id="campos" method="post">
+    <input class="campo" type="email" id="email" name="email" placeholder="Email" required><br><br>
+    <input class="campo" type="password" id="senha" name="password" placeholder="Senha" required><br><br>
+    <button class="button Entrar">Entrar</button>
+</form>
+
+</body>
+</html>

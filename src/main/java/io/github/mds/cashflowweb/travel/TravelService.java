@@ -21,9 +21,19 @@ public class TravelService {
         return travelRepository.save(travel).getId();
     }
 
+    @Transactional
+    public void createTravel(Travel travel) {
+        travelRepository.save(travel);
+    }
+
     @Transactional(readOnly = true)
     public List<Travel> listTravels(Employee employee) {
         return travelRepository.findAllByEmployee(employee);
+    }
+
+    @Transactional(readOnly = true)
+    public List<Travel> listTravels() {
+        return travelRepository.findAll();
     }
 
     @Transactional(readOnly = true)
@@ -42,7 +52,7 @@ public class TravelService {
         travel.setDestination(updatedTravel.getDestination());
         travel.setDescription(updatedTravel.getDescription());
         travel.setBudget(updatedTravel.getBudget());
-        travel.setItinerary(updatedTravel.getItinerary());
+        //travel.setItinerary(updatedTravel.getItinerary());
         travelRepository.save(travel);
     }
 

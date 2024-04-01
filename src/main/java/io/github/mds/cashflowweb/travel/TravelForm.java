@@ -1,80 +1,39 @@
 package io.github.mds.cashflowweb.travel;
 
 import io.github.mds.cashflowweb.employee.Employee;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import org.hibernate.annotations.OnDelete;
-import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.validator.constraints.UniqueElements;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity
-public class Travel {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class TravelForm {
 
     @NotNull
-    @Column(nullable = false)
     private LocalDate startDate;
 
     @NotNull
-    @Column(nullable = false)
     private LocalDate endDate;
 
     @NotBlank
-    @Column(nullable = false)
     private String origin;
 
     @NotBlank
-    @Column(nullable = false)
     private String destination;
 
     @NotBlank
-    @Column(nullable = false)
-    private String description;
+    private  String description;
 
     private BigDecimal budget;
-/*
-    @UniqueElements
-    @NotEmpty
-    @ElementCollection(fetch = FetchType.EAGER)
-    @Column(nullable = false)
+
+    @UniqueElements @NotEmpty
     private List<String> itinerary;
-*/
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    @Column(nullable = false)
-    private TravelStatus status;
 
     @NotNull
-    @ManyToOne(optional = false)
-    @OnDelete(action = OnDeleteAction.CASCADE)
-    private Employee employee;
-
-    public Travel() {}
-
-    public Travel(LocalDate startDate, LocalDate endDate, String origin, String destination, String description, BigDecimal budget, List<String> itinerary, TravelStatus status, Employee employee) {
-        this.startDate = startDate;
-        this.endDate = endDate;
-        this.origin = origin;
-        this.destination = destination;
-        this.description = description;
-        this.budget = budget;
-        //this.itinerary = itinerary;
-        this.status = status;
-        this.employee = employee;
-    }
-
-    public Long getId() {
-        return id;
-    }
+    private Long employeeId;
 
     public LocalDate getStartDate() {
         return startDate;
@@ -123,7 +82,7 @@ public class Travel {
     public void setBudget(BigDecimal budget) {
         this.budget = budget;
     }
-/*
+
     public List<String> getItinerary() {
         return itinerary;
     }
@@ -131,35 +90,26 @@ public class Travel {
     public void setItinerary(List<String> itinerary) {
         this.itinerary = itinerary;
     }
-*/
-    public TravelStatus getStatus() {
-        return status;
+
+    public Long getEmployeeId() {
+        return employeeId;
     }
 
-    public void setStatus(TravelStatus status) {
-        this.status = status;
+    public void setEmployeeId(Long employeeId) {
+        this.employeeId = employeeId;
     }
 
-    public void setEmployee(Employee employee) {
-        this.employee = employee;
-    }
-
-    public Employee getEmployee() {
-        return employee;
-    }
-
-    public TravelResponse toResponse() {
-        return new TravelResponse(id, startDate, destination, description);
-    }
-
-    public FullTravelResponse toFullResponse() {
-        return new FullTravelResponse(
-                id,
+    public Travel toEntity() {
+        return new Travel(
                 startDate,
                 endDate,
                 origin,
                 destination,
-                description
+                description,
+                budget,
+                itinerary,
+                TravelStatus.SCHEDULED,
+                new Employee(employeeId)
         );
     }
 

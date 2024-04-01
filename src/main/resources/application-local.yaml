@@ -7,10 +7,21 @@ spring:
   jpa:
     hibernate.ddl-auto: create-drop
     database-platform: org.hibernate.dialect.H2Dialect
+  thymeleaf:
+    cache: false
+    prefix: file:src/main/resources/templates/
+  web:
+    resources:
+      static-locations: file:src/main/resources/static/
+      cache:
+        period: 0
   servlet:
     multipart:
       max-file-size: 5MB
       max-request-size: 5MB
+  h2:
+    console:
+      enabled: true
 
 logging:
   level:
