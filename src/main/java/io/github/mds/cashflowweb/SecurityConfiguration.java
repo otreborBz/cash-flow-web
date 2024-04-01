@@ -23,8 +23,18 @@ public class SecurityConfiguration {
     @Order(2)
     public SecurityFilterChain webSecurityFilterChain(HttpSecurity http) throws Exception {
         return http
+                .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authorize -> authorize
+                        .requestMatchers(
+                                "/js/**",
+                                "/css/**",
+                                "/img/**",
+                                "/h2-console/**"
+                        ).permitAll()
                         .anyRequest().hasRole("MANAGER")
+                )
+                .headers(headers -> headers
+                        .frameOptions(frameOptions -> frameOptions.disable())
                 )
                 .formLogin(formLogin -> formLogin
                         .loginPage("/login")
