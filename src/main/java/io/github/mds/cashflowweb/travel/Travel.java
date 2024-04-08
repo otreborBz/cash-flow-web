@@ -3,15 +3,15 @@ package io.github.mds.cashflowweb.travel;
 import io.github.mds.cashflowweb.employee.Employee;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
+//import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
-import org.hibernate.validator.constraints.UniqueElements;
+//import org.hibernate.validator.constraints.UniqueElements;
 
-import java.math.BigDecimal;
+//import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
+//import java.util.List;
 
 @Entity
 public class Travel {
@@ -39,9 +39,9 @@ public class Travel {
     @NotBlank
     @Column(nullable = false)
     private String description;
-
-    private BigDecimal budget;
 /*
+    private BigDecimal budget;
+
     @UniqueElements
     @NotEmpty
     @ElementCollection(fetch = FetchType.EAGER)
@@ -60,13 +60,13 @@ public class Travel {
 
     public Travel() {}
 
-    public Travel(LocalDate startDate, LocalDate endDate, String origin, String destination, String description, BigDecimal budget, List<String> itinerary, TravelStatus status, Employee employee) {
+    public Travel(LocalDate startDate, LocalDate endDate, String origin, String destination, String description, /*BigDecimal budget, List<String> itinerary,*/ TravelStatus status, Employee employee) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.origin = origin;
         this.destination = destination;
         this.description = description;
-        this.budget = budget;
+        //this.budget = budget;
         //this.itinerary = itinerary;
         this.status = status;
         this.employee = employee;
@@ -115,7 +115,7 @@ public class Travel {
     public void setDescription(String description) {
         this.description = description;
     }
-
+/*
     public BigDecimal getBudget() {
         return budget;
     }
@@ -123,7 +123,7 @@ public class Travel {
     public void setBudget(BigDecimal budget) {
         this.budget = budget;
     }
-/*
+
     public List<String> getItinerary() {
         return itinerary;
     }
@@ -146,6 +146,17 @@ public class Travel {
 
     public Employee getEmployee() {
         return employee;
+    }
+
+    public TravelForm toForm() {
+        return new TravelForm(
+                startDate,
+                endDate,
+                origin,
+                destination,
+                description,
+                employee.getId()
+        );
     }
 
     public TravelResponse toResponse() {

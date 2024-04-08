@@ -38,6 +38,7 @@ public class Expense {
     @Column(nullable = false)
     private String location;
 
+    @Lob
     private byte[] fiscalNote;
 
     @ManyToOne(optional = false)

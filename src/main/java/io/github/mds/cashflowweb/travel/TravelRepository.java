@@ -12,6 +12,8 @@ public interface TravelRepository extends JpaRepository<Travel, Long> {
 
     List<Travel> findAllByEmployee(Employee employee);
 
+    List<Travel> findAllByDescriptionContainingIgnoreCase(String description);
+
     Optional<Travel> findByIdAndEmployee(long id, Employee employee);
 
     void deleteByIdAndEmployee(long id, Employee employee);

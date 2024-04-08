@@ -1,6 +1,8 @@
 package io.github.mds.cashflowweb.travel;
 
 import io.github.mds.cashflowweb.employee.Employee;
+import io.github.mds.cashflowweb.employee.EmployeeNotFoundException;
+import io.github.mds.cashflowweb.employee.EmployeeRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,9 +12,11 @@ import java.util.List;
 public class TravelService {
 
     private final TravelRepository travelRepository;
+    private final EmployeeRepository employeeRepository;
 
-    public TravelService(TravelRepository travelRepository) {
+    public TravelService(TravelRepository travelRepository, EmployeeRepository employeeRepository) {
         this.travelRepository = travelRepository;
+        this.employeeRepository = employeeRepository;
     }
 
     @Transactional
@@ -37,8 +41,19 @@ public class TravelService {
     }
 
     @Transactional(readOnly = true)
+    public List<Travel> findTravels(String description) {
+        return travelRepository.findAllByDescriptionContainingIgnoreCase(description);
+    }
+
+    @Transactional(readOnly = true)
     public Travel findTravel(long id, Employee employee) {
         return travelRepository.findByIdAndEmployee(id, employee)
+                .orElseThrow(TravelNotFoundException::new);
+    }
+
+    @Transactional(readOnly = true)
+    public Travel findTravel(long id) {
+        return travelRepository.findById(id)
                 .orElseThrow(TravelNotFoundException::new);
     }
 
@@ -46,14 +61,37 @@ public class TravelService {
     public void updateTravel(long id, Travel updatedTravel, Employee employee) {
         var travel = travelRepository.findByIdAndEmployee(id, employee)
                 .orElseThrow(TravelNotFoundException::new);
+        updateTravelDetails(travel, updatedTravel);
+        travelRepository.save(travel);
+    }
+
+    @Transactional
+    public void updateTravel(long id, Travel updatedTravel) {
+        var travel = travelRepository.findById(id)
+                .orElseThrow(TravelNotFoundException::new);
+        var employee = employeeRepository.findById(updatedTravel.getEmployee().getId())
+                        .orElseThrow(EmployeeNotFoundException::new);
+        travel.setEmployee(employee);
+        updateTravelDetails(travel, updatedTravel);
+        travelRepository.save(travel);
+    }
+
+    private void updateTravelDetails(Travel travel, Travel updatedTravel) {
         travel.setStartDate(updatedTravel.getStartDate());
         travel.setEndDate(updatedTravel.getEndDate());
         travel.setOrigin(updatedTravel.getOrigin());
         travel.setDestination(updatedTravel.getDestination());
         travel.setDescription(updatedTravel.getDescription());
-        travel.setBudget(updatedTravel.getBudget());
+        //travel.setBudget(updatedTravel.getBudget());
         //travel.setItinerary(updatedTravel.getItinerary());
-        travelRepository.save(travel);
+    }
+
+    @Transactional
+    public void deleteTravel(long id) {
+        if (!travelRepository.existsById(id)) {
+            throw new TravelNotFoundException();
+        }
+        travelRepository.deleteById(id);
     }
 
     @Transactional

@@ -35,8 +35,22 @@ public class ExpenseService {
     }
 
     @Transactional(readOnly = true)
+    public List<Expense> listExpenses(long travelId) {
+        return expenseRepository.findAllByTravelId(travelId);
+    }
+
+    @Transactional(readOnly = true)
     public Expense findExpense(long travelId, long expenseId, Employee employee) {
         if (!travelRepository.existsByIdAndEmployee(travelId, employee)) {
+            throw new TravelNotFoundException();
+        }
+        return expenseRepository.findById(expenseId)
+                .orElseThrow(ExpenseNotFoundException::new);
+    }
+
+    @Transactional(readOnly = true)
+    public Expense findExpense(long travelId, long expenseId) {
+        if (!travelRepository.existsById(travelId)) {
             throw new TravelNotFoundException();
         }
         return expenseRepository.findById(expenseId)

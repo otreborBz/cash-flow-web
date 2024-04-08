@@ -2,6 +2,7 @@ package io.github.mds.cashflowweb.expense;
 
 import io.github.mds.cashflowweb.employee.Employee;
 import jakarta.validation.Valid;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -24,8 +25,8 @@ public class ExpenseController {
     @PostMapping
     public ResponseEntity<?> createExpense(@PathVariable("travelId") long travelId, @Valid @RequestBody ExpenseRequest expense, @AuthenticationPrincipal Employee employee, UriComponentsBuilder builder) {
         var expenseId = expenseService.createExpense(travelId, expense.toEntity(), employee);
-        var location = builder.path("/api/travels/{travelId}/expenses")
-                .buildAndExpand(expenseId)
+        var location = builder.path("/api/travels/{travelId}/expenses/{expenseId}")
+                .buildAndExpand(travelId, expenseId)
                 .toUri();
         return ResponseEntity.created(location).build();
     }
@@ -42,6 +43,15 @@ public class ExpenseController {
     public ResponseEntity<?> findExpense(@PathVariable("travelId") long travelId, @PathVariable("expenseId") long expenseId, @AuthenticationPrincipal Employee employee) {
         var expense = expenseService.findExpense(travelId, expenseId, employee);
         return ResponseEntity.ok(expense.toFullResponse());
+    }
+
+    @GetMapping("/{expenseId}/fiscalNote")
+    public ResponseEntity<?> findExpenseFiscalNote(@PathVariable("travelId") long travelId, @PathVariable("expenseId") long expenseId) {
+        var expense = expenseService.findExpense(travelId, expenseId);
+        return ResponseEntity.ok()
+                .contentType(MediaType.IMAGE_JPEG)
+                .contentLength(expense.getFiscalNote().length)
+                .body(expense.getFiscalNote());
     }
 
     @PutMapping("/{expenseId}/fiscalNote")

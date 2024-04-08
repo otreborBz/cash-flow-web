@@ -46,6 +46,11 @@ public class EmployeeService {
     }
 
     @Transactional(readOnly = true)
+    public List<Employee> findEmployees(String name) {
+        return employeeRepository.findAllByNameContainingIgnoreCase(name);
+    }
+
+    @Transactional(readOnly = true)
     public Employee findEmployee(long id) {
         return employeeRepository.findById(id)
                 .orElseThrow(EmployeeNotFoundException::new);

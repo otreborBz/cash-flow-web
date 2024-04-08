@@ -2,13 +2,13 @@ package io.github.mds.cashflowweb.travel;
 
 import io.github.mds.cashflowweb.employee.Employee;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
+//import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
-import org.hibernate.validator.constraints.UniqueElements;
+//import org.hibernate.validator.constraints.UniqueElements;
 
-import java.math.BigDecimal;
+//import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
+//import java.util.List;
 
 public class TravelForm {
 
@@ -26,14 +26,27 @@ public class TravelForm {
 
     @NotBlank
     private  String description;
-
+/*
     private BigDecimal budget;
 
     @UniqueElements @NotEmpty
     private List<String> itinerary;
-
+*/
     @NotNull
     private Long employeeId;
+
+    public TravelForm() {}
+
+    public TravelForm(LocalDate startDate, LocalDate endDate, String origin, String destination, String description, /*BigDecimal budget, List<String> itinerary,*/ Long employeeId) {
+        this.startDate = startDate;
+        this.endDate = endDate;
+        this.origin = origin;
+        this.destination = destination;
+        this.description = description;
+        //this.budget = budget;
+        //this.itinerary = itinerary;
+        this.employeeId = employeeId;
+    }
 
     public LocalDate getStartDate() {
         return startDate;
@@ -74,7 +87,7 @@ public class TravelForm {
     public void setDescription(String description) {
         this.description = description;
     }
-
+/*
     public BigDecimal getBudget() {
         return budget;
     }
@@ -90,7 +103,7 @@ public class TravelForm {
     public void setItinerary(List<String> itinerary) {
         this.itinerary = itinerary;
     }
-
+*/
     public Long getEmployeeId() {
         return employeeId;
     }
@@ -106,8 +119,8 @@ public class TravelForm {
                 origin,
                 destination,
                 description,
-                budget,
-                itinerary,
+                //budget,
+                //itinerary,
                 TravelStatus.SCHEDULED,
                 new Employee(employeeId)
         );

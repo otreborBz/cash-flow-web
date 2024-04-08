@@ -13,6 +13,23 @@ h2{
     margin: 10px;
 }
 
+.input-nome{
+    width: 400px;
+}
+
+.data{
+    width: 125px;
+    padding: 2px;
+}
+#startDate{
+    width: 100px;
+}
+#endDate{
+    width: 100px;
+}
+#description{
+    width: 98%;
+}
 
 .geral{
     padding: 5px;

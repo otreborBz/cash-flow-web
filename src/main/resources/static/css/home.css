@@ -108,3 +108,13 @@ body{
 
 
 
+.funcionario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 10px;
+    border-radius: 5px;
+    height: 50px;
+    box-shadow: 3px 3px 9px rgb(152, 152, 152);
+}

@@ -48,6 +48,13 @@ public class EmployeeController {
         return "employee/employee-table";
     }
 
+    @GetMapping("/find")
+    public String findEmployees(@RequestParam("name") String name, Model model) {
+        var employees = employeeService.findEmployees(name);
+        model.addAttribute("employees", employees);
+        return "employee/employee-table";
+    }
+
     @GetMapping("/update/{id}")
     public String retrieveUpdateEmployeePage(@PathVariable("id") long id, Model model) {
         var employee = employeeService.findEmployee(id);
