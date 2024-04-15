@@ -21,7 +21,7 @@
             <button class="button drop" onclick="toggleSubMenu()"><img th:src="@{/img/justify (1).svg}"></button>
             <ul id="submenu">
                 <form th:action="@{/logout}" method="post">
-                    <button class="button_vermelho">sair</button>
+                    <button class="button_vermelho botao_sair">Sair</button>
                 </form>
             </ul>
         </div>
@@ -39,11 +39,11 @@
             <div class="form-row">
                 <div class="form-group origem">
                     <label for="origin">Origem:</label>
-                    <input type="text" id="origin" name="origin" class="input-nome" th:field="*{origin}" required>
+                    <input type="text" id="origin" name="origin" class="input-nome" th:field="*{origin}" required minlength="15">
                 </div>
                 <div class="form-group data">
                     <label for="startDate">Inicio:</label>
-                    <input type="date" id="startDate" name="startDate" class="input-cpf large-input" th:field="*{startDate}" required>
+                    <input type="date" id="startDate" name="startDate" class="input-cpf large-input" th:field="*{startDate}" required minlength="15">
                 </div>
                 <div class="form-group data">
                     <label for="endDate">Fim:</label>
@@ -78,7 +78,9 @@
                             <p th:text="${expense.dateTime}"></p>
                             <div class="card_footer">
                                 <p th:text="${expense.amount}"></p>
-                                <img class="img" th:src="@{/api/travels/__${travelId}__/expenses/__${expense.id}__/fiscalNote}">
+                                <div class="box_imagem_despesas">
+                                    <img class="img_despesas" th:src="@{/api/travels/__${travelId}__/expenses/__${expense.id}__/fiscalNote}">
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -92,6 +94,6 @@
     </div>
 </form>
 
-<script src="js/header.js"></script>
+<script th:src="@{/js/header.js}"></script>
 </body>
 </html>

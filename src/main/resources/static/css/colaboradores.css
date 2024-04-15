@@ -67,7 +67,7 @@ body{
 
 #lista-colaboradores{
     border-radius: 5px;
-    height: 71vh;
+    height: 68vh;
     background-color: var(--branco);
     overflow: auto;
 }

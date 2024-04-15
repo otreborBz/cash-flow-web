@@ -3,6 +3,7 @@
 *{
     margin: 0%;
     padding: 0%;
+    font-family: 'Roboto', sans-serif;
 }
 body{
     display: flex;
@@ -26,7 +27,7 @@ body{
     background-color: var(--branco);
     border-radius: 5px;
     width: 630px;
-    height: 86vh;
+    min-height: 85vh;
 }
 
 .lista{
@@ -58,12 +59,9 @@ body{
     align-items: center;
     justify-content: space-evenly;
     margin-bottom: 19px;
-    /* border: 2px solid black; */
-    
 }
 .topo{
     width: 100px;
-    /* margin: 5px; */
 }
 
 
@@ -76,18 +74,13 @@ body{
 }
 
 #txt-left{
-    font-family: 'Roboto',sans-serif;
     font-size: 20px;
     font-weight: bolder;
-    /* margin-left: 35%; */
-    /* border: 2px solid green; */
+    margin-bottom: 5px;
 }
 #txt-right{
-    font-family: 'Roboto',sans-serif;
     font-size: 20px;
     font-weight: bolder;
-    /* margin-left: 35%; */
-    /* border: 2px solid green; */
 }
 #campo-right{
     display: flex;
@@ -110,9 +103,10 @@ body{
 
 .funcionario{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: start;
+    padding-left: 5px;
     margin: 10px;
     border-radius: 5px;
     height: 50px;

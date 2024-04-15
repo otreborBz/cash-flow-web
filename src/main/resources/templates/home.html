@@ -8,7 +8,7 @@
     <link rel="stylesheet" th:href="@{/css/colors.css}">
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/js/home.js}">
-    <link rel="shotcut icon" href="_img/Logo_CashFlow.png">
+    <link rel="shotcut icon" th:href="@{/img/Logo_CashFlow.png}">
     <title>Cash Flow</title>
 </head>
 <body>
@@ -22,7 +22,7 @@
             <button class="button drop" onclick="toggleSubMenu()"><img th:src="@{/img/justify (1).svg}"></button>
             <ul id="submenu">
                 <form th:action="@{/logout}" method="post">
-                    <button class="button_vermelho">sair</button>
+                    <button class="button_vermelho botao_sair">Sair</button>
                 </form>
             </ul>
         </div>
@@ -43,7 +43,6 @@
             <div id="viagem" th:each="travel : ${travels}" th:text="${travel.description}">
             </div>
         </div>
-
 
     </div>
     <!-- Informaçoes sobre os colaboradores  -->

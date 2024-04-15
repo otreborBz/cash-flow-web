@@ -1,5 +1,14 @@
-// Função para mostrar/ocultar os submenus
 function toggleSubMenu() {
     var submenu = document.getElementById("submenu");
-    submenu.style.display = (submenu.style.display === "block") ? "none" : "block";
+    submenu.classList.toggle("active");
 }
+
+window.addEventListener('click', function(event) {
+    var submenu = document.getElementById("submenu");
+    var menu = document.getElementById("menu");
+    var target = event.target;
+
+    if (!menu.contains(target) && !submenu.contains(target)) {
+        submenu.classList.remove("active");
+    }
+});

@@ -5,6 +5,7 @@
 *{
     margin: 0%;
     padding: 0%;
+    font-family: 'Roboto',sans-serif;
 }
 
 body{
@@ -34,7 +35,7 @@ header{
     display: flex;
     flex-direction: row;
     padding: 10px;
-    margin-left: 60%;
+    margin-left: 68%;
     justify-content: space-between;
     
 }
@@ -45,27 +46,30 @@ header{
     height: 40px;
 }
 
-.menu {
-    position: relative;
-    display: inline-block;
+#submenu.active {
+    right: 0; 
 }
 
-.menu ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    display: none; /* Oculta os submenus por padrão */
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    z-index: 1;
+
+/* CSS para esconder o menu lateral por padrão */
+#submenu {
+    display: flex;
+    position: fixed;
+    top: 0;
+    right: -250px; 
+    height: 90vh;
+    background-color: var(--cinza);
+    padding-top: 39%;
+    transition: right 0.5s;
+    z-index: 1000; 
 }
 
-.menu ul li {
-    padding: 8px 12px;
-    cursor: pointer;
+
+#submenu.active {
+    right: 0; 
 }
 
-.menu ul li:hover {
-    background-color: #ddd;
+.botao_sair{
+    width: 200px;
+    margin-left: 10px;
 }
