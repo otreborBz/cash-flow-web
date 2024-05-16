@@ -24,6 +24,7 @@ body{
     border-radius: 6px;
     background-color: var(--branco);
     margin-top: 5px;
+    padding: 20px;
 }
 .container1{
     display: flex;
@@ -38,6 +39,7 @@ body{
     display: flex;
     flex-direction: row;
     padding: 2px;
+    
 }
 
 

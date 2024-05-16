@@ -74,11 +74,13 @@ body{
 }
 
 #txt-left{
+    padding: 10px;
     font-size: 20px;
     font-weight: bolder;
     margin-bottom: 5px;
 }
 #txt-right{
+    padding: 10px;
     font-size: 20px;
     font-weight: bolder;
 }

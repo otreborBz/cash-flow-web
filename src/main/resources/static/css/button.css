@@ -34,3 +34,27 @@
 .button_vermelho:hover{
     background-color: var(--vermelho-variavel);
 }
+
+
+
+
+
+.error-card {
+    background-color: #ffe6e6; 
+    color: #e01616; 
+    font-family: Arial, sans-serif;
+    padding: 4px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+    text-align: center;
+    max-width: 300px;
+    margin: 20px; 
+    margin-top: 40px;
+}
+
+.error-message {
+    font-weight: bold;
+    margin:1000px;
+    font-size: 16px;
+    margin: 5px;
+}

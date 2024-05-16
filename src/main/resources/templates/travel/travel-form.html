@@ -1,85 +1,92 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/addColaborador.css}">
+    <link rel="stylesheet" th:href="@{/css/campos.css}">
     <link rel="stylesheet" th:href="@{/css/header.css}">
     <link rel="stylesheet" th:href="@{/css/colors.css}">
     <link rel="stylesheet" th:href="@{/css/editarViagem.css}">
     <link rel="shotcut icon" th:href="@{/img/Logo_CashFlow.png}">
     <title>Formulário</title>
 </head>
-<body style="background-color: var(--cinza);">
-<header>
-    <div><a th:href="@{/home}"><img id="logo" th:src="@{/img/Logo_CashFlow.png}" alt=""></a></div>
-    <div id="buttons">
-        <a class="button header" th:href="@{/home}">Inicio</a>
-        <a class="button header" th:href="@{/travel/list}">Viagens</a>
-        <a class="button header" th:href="@{/employee/list}">Colaboradores</a>
-        <div class="menu" id="menu">
-            <button class="button drop" onclick="toggleSubMenu()"><img th:src="@{/img/justify (1).svg}"></button>
-            <ul id="submenu">
-                <form th:action="@{/logout}" method="post">
-                    <button class="button_vermelho botao_sair">Sair</button>
-                </form>
-            </ul>
-        </div>
-    </div>
-</header>
 
-<form
-        th:action="${mode == 'create'} ? @{/travel/create} : @{/travel/update/__${id}__}"
-        th:object="${travel}"
-        method="post"
->
-    <h1 id="titulo" th:text="${mode == 'create'} ? 'Adicionar uma viagem' : 'Editar uma viagem'"></h1>
-    <div class="container">
-        <div>
-            <div class="form-row">
-                <div class="form-group origem">
-                    <label for="origin">Origem:</label>
-                    <input type="text" id="origin" name="origin" class="input-nome" th:field="*{origin}" required minlength="15">
+<body style="background-color: var(--cinza);">
+    <header>
+        <div><a th:href="@{/home}"><img id="logo" th:src="@{/img/Logo_CashFlow.png}" alt=""></a></div>
+        <div id="buttons">
+            <a class="button header" th:href="@{/home}">Inicio</a>
+            <a class="button header" th:href="@{/travel/list}">Viagens</a>
+            <a class="button header" th:href="@{/employee/list}">Colaboradores</a>
+            <form th:action="@{/logout}" method="post">
+                <button class="button_vermelho botao_sair">Sair</button>
+            </form>
+        </div>
+    </header>
+
+    <form th:action="${mode == 'create'} ? @{/travel/create} : @{/travel/update/__${id}__}" th:object="${travel}"
+        method="post">
+        <h1 id="titulo" th:text="${mode == 'create'} ? 'Adicionar uma viagem' : 'Editar uma viagem'"></h1>
+        <div class="container" id="box_container">
+            <div>
+                <div class="form-row">
+                    <div class="form-group origem">
+                        <label for="origin">Origem:</label>
+                        <input type="text" id="origin" name="origin" class="input-nome" th:field="*{origin}" required
+                            minlength="15">
+                    </div>
+                    <div class="box_datas">
+
+                        <div class="form-group data">
+                            <label for="startDate">Inicio:</label>
+                            <input type="date" id="startDate" name="startDate" class="input-cpf large-input"
+                                style="border: solid 1px var(--cinza); height: 30px;" th:field="*{startDate}" required
+                                minlength="15">
+                        </div>
+                        <div class="form-group data">
+                            <label for="endDate" style="margin-left: 20px;">Fim:</label>
+                            <input type="date" id="endDate" name="department" class="input-setor" th:field="*{endDate}"
+                                style="border: solid 1px var(--cinza);height: 30px;">
+                        </div>
+                    </div>
                 </div>
-                <div class="form-group data">
-                    <label for="startDate">Inicio:</label>
-                    <input type="date" id="startDate" name="startDate" class="input-cpf large-input" th:field="*{startDate}" required minlength="15">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="destination">Destino:</label>
+                        <input type="text" id="destination" name="destination" class="input-email large-input"
+                            th:field="*{destination}" required>
+                    </div>
                 </div>
-                <div class="form-group data">
-                    <label for="endDate">Fim:</label>
-                    <input type="date" id="endDate" name="department" class="input-setor" th:field="*{endDate}">
-                </div>
-            </div>
-            <div class="form-row">
                 <div class="form-group">
-                    <label for="destination">Destino:</label>
-                    <input type="text" id="destination" name="destination" class="input-email large-input" th:field="*{destination}" required>
+                    <label for="description">Descrição:</label>
+                    <input type="text" id="description" name="description" class="input-telefone"
+                        th:field="*{description}" required>
                 </div>
-            </div>
-            <div class="form-group">
-                <label for="description">Descrição:</label>
-                <input type="text" id="description" name="description" class="input-telefone" th:field="*{description}" required>
-            </div>
-            <div class="form-group">
-                <label for="employee">Colaborador:</label>
-                <select id="employee" name="employeeId" class="input-senha" required>
-                    <option value="" th:selected="${travel.employeeId == null}">-- Escolha colaborador --</option>
-                    <option th:selected="${travel.employeeId == employee.id}" th:each="employee : ${employees}" th:value="${employee.id}" th:text="${employee.name}"></option>
-                </select>
-            </div>
-            <div class="campos">
-                <div class="box_campos">
-                    <h3>Despesas da Viagem</h3>
-                    <div class="container_card">
-                        <div class="card" th:each="expense : ${expenses}">
-                            <h4 class="titulo_card" th:text="${expense.description}"></h4>
-                            <p th:text="${expense.category}"></p>
-                            <p th:text="${expense.location}"></p>
-                            <p th:text="${expense.dateTime}"></p>
-                            <div class="card_footer">
-                                <p th:text="${expense.amount}"></p>
-                                <div class="box_imagem_despesas">
-                                    <img class="img_despesas" th:src="@{/api/travels/__${travelId}__/expenses/__${expense.id}__/fiscalNote}">
+                <div class="form-group">
+                    <label for="employee">Colaborador:</label>
+                    <select id="employee" name="employeeId" class="input-senha" required
+                        style="height: 30px; border: solid 1px var(--cinza); border-radius: 4px;">
+                        <option value="" th:selected="${travel.employeeId == null}">-- Escolha colaborador --</option>
+                        <option th:selected="${travel.employeeId == employee.id}" th:each="employee : ${employees}"
+                            th:value="${employee.id}" th:text="${employee.name}"></option>
+                    </select>
+                </div>
+                <div class="campos">
+                    <div class="box_campos">
+                        <h3>Despesas da Viagem</h3>
+                        <div class="container_card">
+                            <div class="card" th:each="expense : ${expenses}">
+                                <h4 class="titulo_card" th:text="${expense.description}"></h4>
+                                <p th:text="${expense.category}"></p>
+                                <p th:text="${expense.location}"></p>
+                                <p th:text="${#temporals.format(expense.dateTime, 'dd/MM/yyyy HH:mm')}"></p>
+                                <div class="card_footer">
+                                    <p th:text="${expense.amount}"></p>
+                                    <div class="box_imagem_despesas">
+                                        <img class="img_despesas"
+                                            th:src="@{/api/travels/__${travelId}__/expenses/__${expense.id}__/fiscalNote}">
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -87,13 +94,13 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="button-group">
-        <button class="button" type="submit">Salvar</button>
-        <a class="button_vermelho cancelar" th:href="@{/travel/list}">Cancelar</a>
-    </div>
-</form>
+        <div class="button-group ">
+            <button class="button" type="submit">Salvar</button>
+            <a class="button_vermelho cancelar" th:href="@{/travel/list}">Cancelar</a>
+        </div>
+    </form>
 
-<script th:src="@{/js/header.js}"></script>
+    <script th:src="@{/js/header.js}"></script>
 </body>
+
 </html>

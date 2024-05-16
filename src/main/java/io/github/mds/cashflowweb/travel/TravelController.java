@@ -4,6 +4,7 @@ import io.github.mds.cashflowweb.employee.Employee;
 import io.github.mds.cashflowweb.employee.EmployeeService;
 import io.github.mds.cashflowweb.expense.ExpenseService;
 import jakarta.validation.Valid;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -66,6 +67,16 @@ public class TravelController {
         var travels = travelService.listTravels();
         model.addAttribute("travels", travels);
         return "travel/travel-table";
+    }
+
+    @GetMapping("/api/travels/{id}/print")
+    public ResponseEntity<?> printTravel(@PathVariable("id") long id) {
+        var document = travelService.printTravel(id);
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_PDF)
+                .header("Content-Disposition", "attachment; filename=" + document.filename())
+                .contentLength(document.size())
+                .body(document.content().toByteArray());
     }
 
     @GetMapping("/travel/find")

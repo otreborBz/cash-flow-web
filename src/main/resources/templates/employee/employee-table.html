@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,51 +10,48 @@
     <link rel="shotcut icon" th:href="@{/img/Logo_CashFlow.png}">
     <title>Colaboradores</title>
 </head>
+
 <body>
-<header>
-    <div><a th:href="@{/home}"><img id="logo" th:src="@{/img/Logo_CashFlow.png}" alt=""></a></div>
-    <div id="buttons">
-        <a class="button header" th:href="@{/home}">Inicio</a>
-        <a class="button header" th:href="@{/travel/list}">Viagens</a>
-        <a class="button header" th:href="@{/employee/list}">Colaboradores</a>
-        <div class="menu" id="menu">
-            <button class="button drop" onclick="toggleSubMenu()"><img th:src="@{/img/justify (1).svg}"></button>
-            <ul id="submenu">
-                <form th:action="@{/logout}" method="post">
-                    <button class="button_vermelho botao_sair">Sair</button>
-                </form>
-            </ul>
+    <header>
+        <div><a th:href="@{/home}"><img id="logo" th:src="@{/img/Logo_CashFlow.png}" alt=""></a></div>
+        <div id="buttons">
+            <a class="button header" th:href="@{/home}">Inicio</a>
+            <a class="button header" th:href="@{/travel/list}">Viagens</a>
+            <a class="button header" th:href="@{/employee/list}">Colaboradores</a>
+            <form th:action="@{/logout}" method="post">
+                <button class="button_vermelho botao_sair">Sair</button>
+            </form>
         </div>
-    </div>
-</header>
+    </header>
 
-<div class="container1">
-    <h1 id="titulo">Lista de colaboradores</h1>
-</div>
-
-<div class="container">
-    <div id="linha1">
-        <a class="button adicionar" th:href="@{/employee/create}">Adicionar</a>
-        <form th:action="@{/employee/find}" id="box_pesquisa">
-            <input type="search" name="name" id="pesquisa" placeholder="Insira um nome para busca">
-            <button class="button busca">Busca</button>
-        </form>
+    <div class="container1">
+        <h1 id="titulo">Lista de colaboradores</h1>
     </div>
-    <div id="lista-colaboradores">
-        <div id="colaborador" th:each="employee : ${employees}">
-            <div id="nome-colaborador">
-                <p th:text="${employee.name}"></p>
-            </div>
-            <div id="opcoes">
-                <a class="button editar" th:href="@{/employee/update/__${employee.id}__}">Editar</a>
-                <form th:action="@{/employee/delete/__${employee.id}__}" method="post">
-                    <button class="button_vermelho deletar" type="submit">Deletar</button>
-                </form>
+
+    <div class="container">
+        <div id="linha1">
+            <a class="button adicionar" th:href="@{/employee/create}">Adicionar</a>
+            <form th:action="@{/employee/find}" id="box_pesquisa">
+                <input type="search" name="name" id="pesquisa" placeholder="Insira um nome para buscar">
+                <button class="button busca">Buscar</button>
+            </form>
+        </div>
+        <div id="lista-colaboradores">
+            <div id="colaborador" th:each="employee : ${employees}">
+                <div id="box-colaborador">
+                    <p th:text="${employee.name}" style="margin-left: 5px;"></p>
+                </div>
+                <div id="opcoes">
+                    <a class="button editar" th:href="@{/employee/update/__${employee.id}__}">Editar</a>
+                    <form th:action="@{/employee/delete/__${employee.id}__}" method="post">
+                        <button class="button_vermelho deletar" type="submit">Deletar</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
 
-<script th:src="@{/js/header.js}"></script>
+    <script th:src="@{/js/header.js}"></script>
 </body>
+
 </html>

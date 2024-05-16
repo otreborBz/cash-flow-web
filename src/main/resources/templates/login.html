@@ -18,8 +18,13 @@
 <img id="imgLogo" th:src="@{/img/Logo_CashFlow.png}" alt="">
 <img id="textLogo" th:src="@{/img/Cash Flow.png}" alt="">
 <form th:action="@{/login}" id="campos" method="post">
+    <div th:if="${param.error}" class="error-card">
+        <p class="error-message">Usuário e senha inválidos</p>
+    </div>
+    
     <input class="campo" type="email" id="email" name="email" placeholder="Email" required><br><br>
     <input class="campo" type="password" id="senha" name="password" placeholder="Senha" required><br><br>
+
     <button class="button entrar">Entrar</button>
 </form>
 

@@ -44,7 +44,7 @@ public class DatabaseInitializer implements CommandLineRunner {
         var employee = employeeRepository.save(new Employee(
                 "employee",
                 "employee@email.com",
-                "xxx-xxx-xxx.xx", // replace with a valid cpf
+                "071.868.130-46", // replace with a valid cpf
                 passwordEncoder.encode("password"),
                 "(xx) xxxxx-xxxx",
                 "department"
@@ -52,7 +52,7 @@ public class DatabaseInitializer implements CommandLineRunner {
         managerRepository.save(new Manager(
                 "manager",
                 "manager@email.com",
-                "yyy.yyy.yyy-yy", // replace with a valid cpf
+                "737.346.670-20", // replace with a valid cpf
                 passwordEncoder.encode("password"),
                 "(yy) yyyyy-yyyy",
                 "department"

@@ -61,7 +61,10 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable) // there's no need for csrf protection for mobile applications
                 .cors(AbstractHttpConfigurer::disable) // there's no need for cors protection for mobile applications
                 .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers("/api/travels/{travelId}/expenses/{expenseId}/fiscalNote").authenticated()
+                        .requestMatchers(
+                                "/api/travels/{travelId}/expenses/{expenseId}/fiscalNote",
+                                "/api/travels/{id}/print"
+                        ).authenticated()
                         .anyRequest().hasRole("EMPLOYEE")
                 )
                 .formLogin(formLogin -> formLogin

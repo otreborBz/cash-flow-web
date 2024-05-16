@@ -2,74 +2,56 @@
 @import url("colors.css");
 @import url("button.css");
 
-*{
+* {
     margin: 0%;
     padding: 0%;
-    font-family: 'Roboto',sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
 }
 
-header{
+header {
     background-color: var(--branco);
     display: flex;
     flex-direction: row;
     padding: 2px;
 }
 
-#logo{
+#logo {
     width: 55px;
+    margin-top: 5px;
 
 }
 
-.header{
+.header {
     height: 20px;
     margin-top: 5px;
     margin-left: 5px;
 }
 
-#buttons{
+#buttons {
     display: flex;
     flex-direction: row;
     padding: 10px;
     margin-left: 68%;
     justify-content: space-between;
-    
 }
 
-.drop{
+.drop {
     margin-top: 5px;
     margin-left: 10px;
     height: 40px;
 }
 
 #submenu.active {
-    right: 0; 
+    right: 0;
 }
 
-
-/* CSS para esconder o menu lateral por padrão */
-#submenu {
-    display: flex;
-    position: fixed;
-    top: 0;
-    right: -250px; 
-    height: 90vh;
-    background-color: var(--cinza);
-    padding-top: 39%;
-    transition: right 0.5s;
-    z-index: 1000; 
-}
-
-
-#submenu.active {
-    right: 0; 
-}
-
-.botao_sair{
-    width: 200px;
-    margin-left: 10px;
+.botao_sair {
+    margin-left: 5px;
+    margin-top: 5px;
+    height: 40px;
 }

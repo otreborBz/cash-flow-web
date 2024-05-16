@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Gerador de PDF</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        form {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        .header-table {
+            width: 100%;
+            margin-bottom: 20px;
+            border-collapse: collapse;
+        }
+
+        .header-table th, .header-table td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .infos p {
+            margin: 0;
+        }
+
+        .infos1 {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info {
+            flex: 0 0 48%; /* Definindo largura para 48% do container pai */
+        }
+
+        .despesa {
+            background-color: #ffffff;
+            border: 1px solid #e0e0e0;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .despesa h3 {
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 18px;
+            color: #333333;
+        }
+
+        .despesa label {
+            font-weight: bold;
+        }
+
+        .despesa p {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+<h1>Relatório da viagem</h1>
+<form id="pdfForm">
+
+    <table class="header-table">
+        <tr>
+            <th>Nome do Colaborador</th>
+            <td th:text="${travel.employee.name}"></td>
+            <th>Data de Início</th>
+            <td th:text="${#temporals.format(travel.startDate, 'dd/MM/yyyy')}"></td>
+        </tr>
+        <tr>
+            <th>Data de Fim</th>
+            <td th:text="${#temporals.format(travel.endDate, 'dd/MM/yyyy')}"></td>
+            <th>Origem</th>
+            <td th:text="${travel.origin}"></td>
+        </tr>
+        <tr>
+            <th>Destino</th>
+            <td th:text="${travel.destination}"></td>
+            <th>Descrição da Viagem</th>
+            <td th:text="${travel.description}"></td>
+        </tr>
+    </table>
+
+    <h2>Despesas da Viagem:</h2>
+    <div class="despesas">
+        <div th:each="expense : ${expenses}" class="despesa">
+            <h3>Despesa</h3>
+            <div>
+                <label for="Estabelecimento">Descrição:</label>
+                <p th:text="${expense.description}" id="Estabelecimento1"></p>
+            </div>
+
+            <div>
+                <label for="TipoDeGasto">Categoria:</label>
+                <p th:text="${expense.category}" id="TipoDeGasto1"></p>
+            </div>
+
+            <div>
+                <label for="DataHora">Data:</label>
+                <p th:text="${#temporals.format(expense.dateTime, 'dd/MM/yyyy HH:mm')}" id="DataHora1"></p>
+            </div>
+
+            <div>
+                <label for="Valor">Valor:</label>
+                <p th:text="${expense.amount}" id="Valor1"></p>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+</body>
+</html>

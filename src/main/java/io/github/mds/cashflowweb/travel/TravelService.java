@@ -3,6 +3,8 @@ package io.github.mds.cashflowweb.travel;
 import io.github.mds.cashflowweb.employee.Employee;
 import io.github.mds.cashflowweb.employee.EmployeeNotFoundException;
 import io.github.mds.cashflowweb.employee.EmployeeRepository;
+import io.github.mds.cashflowweb.expense.ExpenseRepository;
+import io.github.mds.cashflowweb.util.Document;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,10 +15,14 @@ public class TravelService {
 
     private final TravelRepository travelRepository;
     private final EmployeeRepository employeeRepository;
+    private final ExpenseRepository expenseRepository;
+    private final TravelDocumentGenerator travelDocumentGenerator;
 
-    public TravelService(TravelRepository travelRepository, EmployeeRepository employeeRepository) {
+    public TravelService(TravelRepository travelRepository, EmployeeRepository employeeRepository, ExpenseRepository expenseRepository, TravelDocumentGenerator travelDocumentGenerator) {
         this.travelRepository = travelRepository;
         this.employeeRepository = employeeRepository;
+        this.expenseRepository = expenseRepository;
+        this.travelDocumentGenerator = travelDocumentGenerator;
     }
 
     @Transactional
@@ -55,6 +61,13 @@ public class TravelService {
     public Travel findTravel(long id) {
         return travelRepository.findById(id)
                 .orElseThrow(TravelNotFoundException::new);
+    }
+
+    @Transactional(readOnly = true)
+    public Document printTravel(long id) {
+        var travel = travelRepository.findById(id).orElseThrow(TravelNotFoundException::new);
+        var expenses = expenseRepository.findAllByTravelId(id);
+        return travelDocumentGenerator.generateOrderDocument(travel, expenses);
     }
 
     @Transactional

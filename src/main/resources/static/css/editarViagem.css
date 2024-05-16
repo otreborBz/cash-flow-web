@@ -1,46 +1,60 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-*{
+* {
     font-family: 'Roboto', sans-serif;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     height: 99vh;
     background-color: var(--cinza);
 }
 
-h2{
+h2 {
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 10px;
 }
 
-.input-nome{
+.input-nome {
     width: 400px;
 }
 
-.data{
-    width: 125px;
+.data {
     padding: 2px;
+    margin-top: 10px;
+    border-radius: 4px;
 }
-#startDate{
+
+.box_datas {
+    display: flex;
+    flex-direction: row;
+    margin-right: 40px;
+}
+
+#startDate {
     width: 100px;
+    margin-right: 10px;
 }
-#endDate{
+
+#endDate {
     width: 100px;
+    margin-left: 20px;
+
 }
-#description{
+
+
+#description {
     width: 98%;
 }
 
-.geral{
+.geral {
     padding: 5px;
 }
 
-.container_geral{
+.container_geral {
     display: flex;
     background-color: var(--branco);
     padding: 10px;
@@ -48,7 +62,7 @@ h2{
     border-radius: 4px;
 }
 
-.container{
+.container {
     display: flex;
     flex-direction: column;
     overflow: auto;
@@ -56,30 +70,32 @@ h2{
     padding: 5px;
 }
 
-.container::-webkit-scrollbar{
+.container::-webkit-scrollbar {
     width: 2px;
     height: 2px;
 }
+
 .container::-webkit-scrollbar-thumb {
     background-color: black;
 }
+
 .container::-webkit-scrollbar-track {
     background-color: var(--cinza);
 }
 
-.campos{
+.campos {
     display: flex;
     flex-direction: row;
     padding: 10px;
     border-radius: 4px;
 }
 
-.box_campos{
+.box_campos {
     display: flex;
     flex-direction: column;
 }
 
-.campo{
+.campo {
     border: 2px solid var(--azul);
     border-radius: 4px;
     margin-top: 5px;
@@ -87,54 +103,57 @@ h2{
     padding-left: 5px;
 }
 
-.origem{
+.origem {
     width: 600px;
-
+    margin-top: 10px;
 }
 
-.txt_campo_inicio{
+.txt_campo_inicio {
     margin-left: 200px;
 }
-.inicio{    
+
+.inicio {
     width: 130px;
     margin-left: 200px;
 }
 
-.txt_campo_fim{
+.txt_campo_fim {
     margin-left: 40px;
 }
-.fim{
+
+.fim {
     width: 130px;
     margin-left: 40px;
 }
 
-.destino{
+.destino {
     width: 600px;
 }
 
-.txt_campo_orcamento{
+.txt_campo_orcamento {
     margin-left: 200px;
 }
-.orcamento{
+
+.orcamento {
     width: 308px;
     margin-left: 200px;
 }
 
-.descricao{
+.descricao {
     display: flex;
     width: 1116px;
     height: 60px;
     resize: none;
 }
 
-.container_card{
+.container_card {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
 }
 
-.card{
+.card {
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -144,14 +163,14 @@ h2{
     padding: 5px;
 }
 
-.card_footer{
+.card_footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     margin-top: 15px;
 }
 
-.box_imagem_despesas{
+.box_imagem_despesas {
     display: flex;
     max-height: 110px;
     width: 80px;
@@ -159,25 +178,26 @@ h2{
     cursor: pointer;
 }
 
-.img_despesas{
+.img_despesas {
     width: 100%;
     height: 100%;
     border-radius: 2px;
 }
 
 
-.buttons{
+.buttons {
     display: flex;
     flex-direction: row;
     margin-top: 5px;
     margin-left: 84%;
 }
 
-.salvar{
+.salvar {
     margin-left: 5px;
 }
 
-.voltar{
+.voltar {
     margin-left: 5px;
     height: 16px;
 }
+

@@ -1,15 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-*{
-    font-family: 'Roboto',sans-serif;
+* {
+    font-family: 'Roboto', sans-serif;
 }
+
 .body {
     font-family: Arial, sans-serif;
     padding: 20px;
 }
 
 .container {
-    max-width: 1000px;
+    max-width: 95%;
     margin: 0 auto;
     background-color: var(--branco);
     border-radius: 8px;
@@ -17,8 +18,14 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+#origin, #startDate, #endDate, #destination, #description, #employee {
+    margin-left: 10px;
+}
+
+
 h1 {
-    font-size: 24px;
+    margin-top: 10px;
+    font-size: 28px;
     font-weight: bold;
     text-align: center;
     margin-bottom: 20px;
@@ -37,6 +44,7 @@ h1 {
     display: block;
     font-weight: bold;
     margin-bottom: 5px;
+    margin-left: 10px;
 }
 
 .form-group input[type="text"],
@@ -54,7 +62,7 @@ h1 {
 }
 
 .input-email {
-    width: 550px; 
+    width: 550px;
 }
 
 .input-cpf {
@@ -64,7 +72,11 @@ h1 {
 .input-cargo,
 .input-setor,
 .input-telefone {
-    width: 300px; 
+    width: 300px;
+}
+
+#telefone {
+    width: 400px;
 }
 
 .input-senha {
@@ -75,15 +87,16 @@ h1 {
     margin-top: 10px;
 }
 
-.button-group{
+.button-group {
     display: flex;
     flex-direction: row;
-    margin-left: 76%;
+    margin-left: 86%;
 }
 
-.cancelar{
+#button-group{
+    margin-left: 87.5%;
+}
+
+.cancelar {
     margin-left: 10px;
 }
-
-
-
