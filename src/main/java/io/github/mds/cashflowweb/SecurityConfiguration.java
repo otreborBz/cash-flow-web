@@ -81,6 +81,7 @@ public class SecurityConfiguration {
                         .logoutSuccessHandler((request, response, authentication) -> response.setStatus(204))
                         .permitAll()
                 )
+                .rememberMe(Customizer.withDefaults())
                 .exceptionHandling(exceptions -> exceptions
                         .authenticationEntryPoint((request, response, authException) -> response.setStatus(401))
                         .accessDeniedHandler((request, response, accessDeniedException) -> response.setStatus(403))

@@ -18,7 +18,7 @@
         }
 
         form {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             background-color: #ffffff;
             padding: 20px;
@@ -37,7 +37,7 @@
         }
 
         .header-table th, .header-table td {
-            padding: 10px;
+            padding: 12px;
             border-bottom: 1px solid #ddd;
             text-align: left;
         }
@@ -87,21 +87,23 @@
     <table class="header-table">
         <tr>
             <th>Nome do Colaborador</th>
-            <td th:text="${travel.employee.name}"></td>
+            <td colspan="3" th:text="${travel.employee.name}"></td>
             <th>Data de Início</th>
-            <td th:text="${#temporals.format(travel.startDate, 'dd/MM/yyyy')}"></td>
+            <td colspan="3" th:text="${#temporals.format(travel.startDate, 'dd/MM/yyyy')}"></td>
         </tr>
         <tr>
-            <th>Data de Fim</th>
-            <td th:text="${#temporals.format(travel.endDate, 'dd/MM/yyyy')}"></td>
             <th>Origem</th>
-            <td th:text="${travel.origin}"></td>
+            <td colspan="3" th:text="${travel.origin}"></td>
+            <th>Data de Fim</th>
+            <td colspan="3" th:text="${#temporals.format(travel.endDate, 'dd/MM/yyyy')}"></td>
         </tr>
         <tr>
             <th>Destino</th>
-            <td th:text="${travel.destination}"></td>
+            <td colspan="7" th:text="${travel.destination}"></td>
+        </tr>
+        <tr>
             <th>Descrição da Viagem</th>
-            <td th:text="${travel.description}"></td>
+            <td colspan="7" th:text="${travel.description}"></td>
         </tr>
     </table>
 
