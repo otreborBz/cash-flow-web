@@ -26,10 +26,6 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
 
-        label {
-            font-weight: bold;
-        }
-
         .header-table {
             width: 100%;
             margin-bottom: 20px;
@@ -42,17 +38,12 @@
             text-align: left;
         }
 
-        .infos p {
-            margin: 0;
+        .header-table th {
+            width: 20%;
         }
 
-        .infos1 {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .info {
-            flex: 0 0 48%; /* Definindo largura para 48% do container pai */
+        .header-table td {
+            width: 30%;
         }
 
         .despesa {
@@ -83,27 +74,26 @@
 <body>
 <h1>Relatório da viagem</h1>
 <form id="pdfForm">
-
     <table class="header-table">
         <tr>
             <th>Nome do Colaborador</th>
-            <td colspan="3" th:text="${travel.employee.name}"></td>
+            <td th:text="${travel.employee.name}"></td>
             <th>Data de Início</th>
-            <td colspan="3" th:text="${#temporals.format(travel.startDate, 'dd/MM/yyyy')}"></td>
+            <td th:text="${#temporals.format(travel.startDate, 'dd/MM/yyyy')}"></td>
         </tr>
         <tr>
             <th>Origem</th>
-            <td colspan="3" th:text="${travel.origin}"></td>
+            <td th:text="${travel.origin}"></td>
             <th>Data de Fim</th>
-            <td colspan="3" th:text="${#temporals.format(travel.endDate, 'dd/MM/yyyy')}"></td>
+            <td th:text="${#temporals.format(travel.endDate, 'dd/MM/yyyy')}"></td>
         </tr>
         <tr>
             <th>Destino</th>
-            <td colspan="7" th:text="${travel.destination}"></td>
+            <td colspan="3" th:text="${travel.destination}"></td>
         </tr>
         <tr>
             <th>Descrição da Viagem</th>
-            <td colspan="7" th:text="${travel.description}"></td>
+            <td colspan="3" th:text="${travel.description}"></td>
         </tr>
     </table>
 
@@ -134,6 +124,5 @@
     </div>
 
 </form>
-
 </body>
 </html>

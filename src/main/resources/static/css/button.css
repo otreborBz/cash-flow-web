@@ -49,7 +49,7 @@
     text-align: center;
     max-width: 300px;
     /* margin: 20px;  */
-    margin-top: 40px;
+    margin-top: 70px;
     margin-block-end: 10px;
 }
 
@@ -59,3 +59,13 @@
     font-size: 14px;
     margin: 5px;
 }
+
+.checkBox{
+ /* border: solid 1px red; */
+ /* font: 10px; */
+ font:bold;
+ 
+}
+
+
+
