@@ -23,10 +23,13 @@ header {
 #logo {
     width: 55px;
     margin-top: 5px;
-
+}
+.direito{
+    width: 90%;
 }
 
 .header {
+    display: flex;
     height: 20px;
     margin-top: 5px;
     margin-left: 5px;
@@ -36,7 +39,6 @@ header {
     display: flex;
     flex-direction: row;
     padding: 10px;
-    margin-left: 68%;
     justify-content: space-between;
 }
 

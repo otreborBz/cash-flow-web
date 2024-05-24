@@ -14,7 +14,7 @@
 
 <body style="background-color: var(--cinza);">
     <header>
-        <div><a th:href="@{/home}"><img id="logo" th:src="@{/img/Logo_CashFlow.png}" alt=""></a></div>
+        <div class="direito"><a th:href="@{/home}"><img id="logo" th:src="@{/img/Logo_CashFlow.png}" alt=""></a></div>
         <div id="buttons">
             <a class="button header" th:href="@{/home}">Inicio</a>
             <a class="button header" th:href="@{/travel/list}">Viagens</a>
@@ -100,7 +100,13 @@
         </div>
     </form>
 
-    <script th:src="@{/js/header.js}"></script>
+    <script th:src="@{/js/index.js}"></script>
+
+<div id="image-modal" class="modal">
+    <span class="close">&times;</span>
+    <img class="modal-content" id="modal-image">
+</div>
+
 </body>
 
 </html>

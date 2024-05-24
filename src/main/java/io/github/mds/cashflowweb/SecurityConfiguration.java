@@ -50,6 +50,7 @@ public class SecurityConfiguration {
                         .deleteCookies("JSESSIONID")
                         .permitAll()
                 )
+                .rememberMe(Customizer.withDefaults())
                 .build();
     }
 
