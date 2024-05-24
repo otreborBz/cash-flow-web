@@ -40,7 +40,7 @@ public class SecurityConfiguration {
                         .loginPage("/login")
                         .usernameParameter("email")
                         .failureUrl("/login?error")
-                        .defaultSuccessUrl("/travel/list", true)
+                        .defaultSuccessUrl("/home", true)
                         .permitAll()
                 )
                 .logout(logout -> logout
