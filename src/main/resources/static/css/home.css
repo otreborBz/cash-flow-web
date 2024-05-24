@@ -34,7 +34,7 @@ body{
     height: 100vh;
     justify-content: center;
     align-items: center;
-
+    margin-top: 50px;
     
 }
 .box {
@@ -53,9 +53,54 @@ body{
     display: inline-block;
     margin: 0;
 
-    color: var(--amarelo);
+
+
+    font-size: 3rem;
+    margin: 0;
+    line-height: 1;
+    position: relative;
   }
 
+  h1 .cash {
+    display: block;
+    position: absolute;
+    top: -5rem;
+    right: -2rem;
+    font-size: 8rem;
+    color: var(--amarelo);
+    z-index: 1;
+  }
+
+  h1 .flow {
+    color: var(--azul);
+    font-size: 12rem;
+  }
+
+  .description {
+    font-size: 1.7rem;
+    margin: 20px 0;
+    color: #6c757d;
+  }
+  .cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  .card {
+    background: white;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 30%;
+  }
+  .card h3 {
+    margin-top: 0;
+    color: var(--azul);
+  }
+  .card p {
+    color: #6c757d;
+
+  }
   span {
     font-family: 'fonteslowdex';
     font-weight: bold;

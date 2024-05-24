@@ -9,19 +9,19 @@
 }
 
 body {
-    display: flex;
-    flex-direction: column;
+    background: #f4f4f9;
+    color: #333;
 }
 
 header {
-    background-color: var(--branco);
+    background: #f4f4f9;
     display: flex;
     flex-direction: row;
     padding: 2px;
 }
 
 #logo {
-    width: 55px;
+    max-width: 50px;
     margin-top: 5px;
 }
 .direito{

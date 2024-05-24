@@ -21,7 +21,7 @@ public class TravelDocumentGenerator {
     public Document generateOrderDocument(Travel travel, List<Expense> expenses) {
         var template = "travel/travel-document";
         var variables = Map.of("travel", travel, "expenses", expenses);
-        return documentGenerator.generate("viagem.pdf", template, variables, Locale.of("pt", "BR"));
+        return documentGenerator.generate("viagem.pdf", template, variables, new Locale("pt", "BR"));
     }
 
 }

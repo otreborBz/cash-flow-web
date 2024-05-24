@@ -1,39 +1,50 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" th:href="@{/css/viagem.css}" />
-    <link rel="stylesheet" th:href="@{/css/home.css}" />
-    <link rel="stylesheet" th:href="@{/css/colors.css}" />
-    <link rel="stylesheet" th:href="@{/css/header.css}" />
-    <link rel="stylesheet" th:href="@{/js/home.js}" />
-    <link rel="shotcut icon" th:href="@{/img/Logo_CashFlow.png}" />
-    <title>Cash Flow</title>
-  </head>
-  <body>
-    <header>
-      <div class="direito">
-        <a th:href="@{/home}"
-          ><img id="logo" th:src="@{/img/Logo_CashFlow.png}" alt=""
-        /></a>
-      </div>
-      <div id="buttons">
-        <a class="button header" th:href="@{/home}">Inicio</a>
-        <a class="button header" th:href="@{/travel/list}">Viagens</a>
-        <a class="button header" th:href="@{/employee/list}">Colaboradores</a>
-        <form th:action="@{/logout}" method="post">
-          <button class="button_vermelho botao_sair">Sair</button>
-        </form>
-      </div>
-    </header>
-    <div class="box">
-      <h1 class="cash">Cash <span class="flow">Flow</span></h1>
-      
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" th:href="@{/css/viagem.css}" />
+  <link rel="stylesheet" th:href="@{/css/home.css}" />
+  <link rel="stylesheet" th:href="@{/css/colors.css}" />
+  <link rel="stylesheet" th:href="@{/css/header.css}" />
+  <link rel="stylesheet" th:href="@{/js/home.js}" />
+  <link rel="shortcut icon" th:href="@{/img/Logo_CashFlow.png}" />
+  <title>Cash Flow</title>
+
+</head>
+<body>
+<header>
+  <div class="direito">
+    <a th:href="@{/home}">
+      <!-- <img id="logo" th:src="@{/img/Logo_CashFlow.png}" alt="Logo Cash Flow" /> -->
+    </a>
+  </div>
+  <div id="buttons">
+    <a class="button header" th:href="@{/home}">Inicio</a>
+    <a class="button header" th:href="@{/travel/list}">Viagens</a>
+    <a class="button header" th:href="@{/employee/list}">Colaboradores</a>
+    <form th:action="@{/logout}" method="post">
+      <button class="button_vermelho botao_sair">Sair</button>
+    </form>
+  </div>
+</header>
+<div class="box">
+  <h1><span class="cash">Cash</span> <span class="flow">Flow</span></h1>
+  <p class="description">Monitore e organize seus gastos corporativos</p>
+  <div class="cards">
+    <div class="card">
+      <h3>Gestão de Despesas</h3>
+      <p>Controle todas as suas despesas em um só lugar com facilidade.</p>
     </div>
-    
-    
-
-
-  </body>
+    <div class="card">
+      <h3>Relatórios </h3>
+      <p>Gere relatórios em PDF para uma análise completa das suas viagens e compartilhe</p>
+    </div>
+    <div class="card">
+      <h3>Segurança</h3>
+      <p>Seus dados protegidos com a mais alta segurança.</p>
+    </div>
+  </div>
+</div>
+</body>
 </html>
