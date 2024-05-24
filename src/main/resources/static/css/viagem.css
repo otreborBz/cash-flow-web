@@ -5,7 +5,7 @@
 }
 
 body{
-    background-color: var(--cinza);
+    background-color: var(--branco);
 }
 
 #titulo{
@@ -41,8 +41,6 @@ body{
     padding: 2px;
     
 }
-
-
 
 .box-buttons{
     display: flex;
@@ -122,7 +120,6 @@ body{
     border-radius: 3px;
     margin-left: 10px;
     margin-right: 30px;
-    /* border: 2px solid purple */
 }
 
 #box_opcoes{

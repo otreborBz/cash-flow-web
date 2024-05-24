@@ -12,7 +12,7 @@
     <title>Formulário</title>
 </head>
 
-<body style="background-color: var(--cinza);">
+<body style="background-color: var(--branco);">
     <header>
         <div class="direito"><a th:href="@{/home}"><img id="logo" th:src="@{/img/Logo_CashFlow.png}" alt=""></a></div>
         <div id="buttons">
@@ -33,8 +33,7 @@
                 <div class="form-row">
                     <div class="form-group origem">
                         <label for="origin">Origem:</label>
-                        <input type="text" id="origin" name="origin" class="input-nome" th:field="*{origin}" required
-                            minlength="15">
+                        <input type="text" id="origin" name="origin" class="input-nome" th:field="*{origin}" required>
                     </div>
                     <div class="box_datas">
 

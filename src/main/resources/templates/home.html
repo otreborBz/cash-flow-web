@@ -27,47 +27,13 @@
         </form>
       </div>
     </header>
+    <div class="box">
+      <h1 class="cash">Cash <span class="flow">Flow</span></h1>
+      
+    </div>
+    
+    
 
-    <section id="conteiners">
-      <!-- Informaçoes sobre as Viagens -->
-      <div class="conteiner left">
-        <h2 id="txt-left">Viagens cadastradas</h2>
-        <form id="bottons-left">
-          <!--TODO: mudar <button> para <a>--->
-          <button class="button topo" type="button">Todas</button>
-          <button class="button topo" type="button">Andamento</button>
-          <button class="button topo" type="button">Espera</button>
-          <button class="button topo" type="button">Concluida</button>
-        </form>
-        <div class="lista">
-          <div
-            id="viagem"
-            th:each="travel : ${travels}"
-            th:text="${travel.description}"
-          ></div>
-        </div>
-      </div>
-      <!-- Informaçoes sobre os colaboradores  -->
-      <div class="conteiner right">
-        <h2 id="txt-right">Colaboradores Cadastrados</h2>
-        <form th:action="@{/employee/find}" id="campo-right">
-          <input
-            type="text"
-            id="busca"
-            name="name"
-            placeholder="Insira um nome para busca"
-          />
-          <button class="button busca">Buscar</button>
-        </form>
-        <div class="lista">
-          <div
-            class="funcionario"
-            th:each="employee : ${employees}"
-            th:text="${employee.name}"
-          ></div>
-        </div>
-      </div>
-    </section>
 
   </body>
 </html>
