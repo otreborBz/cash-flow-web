@@ -17,7 +17,7 @@ public class HomeController {
         this.travelService = travelService;
     }
 
-    //@GetMapping("/home")
+    @GetMapping("/home")
     public String home(Model model) {
         var employees = employeeService.listEmployees();
         var travels = travelService.listTravels();
