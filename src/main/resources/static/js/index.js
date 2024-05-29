@@ -23,3 +23,28 @@ document.addEventListener('DOMContentLoaded', (event) => {
     }
 });
 
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    const modal = document.getElementById('modal');
+    const modalImg = document.getElementById('modal-image');
+    const closeModal = document.getElementById('modal-close');
+    const images = document.querySelectorAll('.expense-image-container img');
+
+    images.forEach(image => {
+        image.addEventListener('click', () => {
+            modal.style.display = 'block';
+            modalImg.src = image.src;
+        });
+    });
+
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+});
+

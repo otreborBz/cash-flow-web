@@ -1,172 +1,73 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
 @font-face {
   font-family: 'fonteslowdex';
   src: url('../fonts/Slowdex.otf') format('opentype');
 }
-@font-face {
-  font-family: 'fonteRIOT';
-  src: url('../font/ProtestRiot-Regular.ttf') format('truetype');
-}
 
-@font-face {
-  font-family: 'fontejust';
-  src: url('../font/Just\ Believe.otf') format('opentype');
+
+:root {
+
+  /* CORES */
+  --blue: #3A3C62;
+  --blue-variable: #4660ace0;
+  --yellow: #F2CB05;
+  --red: #BE3F3F;
+  --red-variable: #be3f3fc4;
+  --gray: #D9D9D9;
+  --gray-variable: #6c757d;
+  --green: #399d39;
+  --white: #ffffff;
+  --white-variable: #f7f7f7;
+
+  --border-radius: 0.25rem;
+  --font: 'fonteslowdex';
 }
 
 
 * {
-    margin: 0%;
-    padding: 0%;
-    font-family: 'Roboto', sans-serif;
-}
-
-body {
-    background: #fff;
-    color: #333;
-}
-
-/* cores */
-
-:root{
-  --azul:#3A3C62;
-  --azul-variavel:#4660ace0;
-  --amarelo:#F2CB05;
-  --vermelho:#BE3F3F;
-  --vermelho-variavel:#be3f3fc4;
-  --cinza:#D9D9D9;
-  --verde: rgb(57, 157, 57);
-  --branco: white;
-  --branco-sujo: #f7f7f7;
-}
-
-/* parte da logo  */
-
-.logo{
-  display: flex;
-  flex-direction: row;
-  position: absolute;
-  left: 4px;
-  top: 10px;
-}
-span {
-  font-family: 'fonteslowdex';
-  font-weight: bold;
-  font-size: 2rem;
-  margin-left: 5px;
-  color: var(--azul);
-  margin-top: 10px;
-  cursor: pointer;
-}
-.cash{
-  color: var(--amarelo);
-}
-
-
-/* parte do header  */
-
-header {
-  position: relative;
-    background: #f4f4f9;
-    display: flex;
-    flex-direction: row;
-    padding: 2px;
-    justify-content: end;
-}
-
-.header {
-    display: flex;
-    height: 20px;
-    margin-top: 5px;
-    margin-left: 5px;
-}
-
-#buttons {
-    display: flex;
-    flex-direction: row;
-    padding: 10px;
-    justify-content: end;
-}
-
-.drop {
-    margin-top: 5px;
-    margin-left: 10px;
-    height: 40px;
-}
-
-#submenu.active {
-    right: 0;
-}
-
-.botao_sair {
-    margin-left: 5px;
-    margin-top: 5px;
-    height: 40px;
-}
-
-/* buttons  */
-
-/*Apenas colocar o botao como classe button para utilizar*/
-.button{
-  font-family: 'Roboto',sans-serif;
-  display: flex;
-  background-color: var(--azul);
-  justify-content: center;
-  align-items: center;
-  border: none;
-  border-radius: 4px;
-  color: var(--branco);
-  padding: 10px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
   text-decoration: none;
-  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
 }
-.button:hover{
-  background-color: var(--azul-variavel);
-}
-
-/*Apenas colocar o botao como classe button-vermelho para utilizar*/
-.button_vermelho{
-  display: flex;
-  background-color: var(--vermelho);
-  justify-content: center;
-  align-items: center;
-  border: none;
-  border-radius: 4px;
-  color: var(--branco);
-  padding: 10px;
-  text-decoration: none;
-  cursor: pointer;
-}
-.button_vermelho:hover{
-  background-color: var(--vermelho-variavel);
-}
-
-
-
-
-
-.error-card {
-  background-color: #ffe6e6; 
-  color: #e41b1b; 
-  font-family: Arial, sans-serif;
-  padding: 4px;
-  border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+.title{ 
+  width: 100%;
+  height: 5vh;
   text-align: center;
-  max-width: 300px;
-  margin-top: 70px;
-  margin-block-end: 10px;
+}
+.title-text{
+  color: var(--blue);
+  font-weight: lighter;
 }
 
-.error-message {
-  margin:1000px;
-  font-size: 14px;
-  margin: 5px;
+.btn{
+  width: 100px;
+  height: 35px;
+  border: none;
+  border-radius: 5px;
+  color: var(--white);
+  text-decoration: none;
+  cursor: pointer;
+  text-align: center;
+  padding: 10px;
+  font-size: 1rem;
 }
-
-.checkBox{
-font:bold;
-
+.btn-larger{
+  width: 120px;
 }
-
-
+.btn-blue{
+  background-color: var(--blue);
+}
+.btn-red{
+  background-color: var(--red);
+}
+.btn-green{
+  background-color: var(--green);
+}
+.btn-menu{
+  background-color: var(--blue);
+  width: 60px;
+  height: 35px;
+  color: var(--white);
+  border-radius: 4px;
+}

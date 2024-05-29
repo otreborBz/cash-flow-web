@@ -1,0 +1,62 @@
+@import url("global.css");
+
+
+body {
+  background-color: var(--white-variable);
+  margin: 0;
+  padding: 0;
+
+}
+
+.form-container {
+  width: 80%;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--gray);
+  border-radius: var(--border-radius);
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: var(--blue-variable);
+  outline: none;
+  box-shadow: 0 0 5px var(--blue-variable);
+}
+
+.form-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.form-group {
+  flex: 1;
+}
+
+.form-actions {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
+
+
+.btn:hover {
+  opacity: 0.8;
+}

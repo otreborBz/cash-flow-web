@@ -1,96 +1,78 @@
 <!DOCTYPE html>
 <html lang="pt-br" xmlns:th="http://www.thymeleaf.org">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/campos.css}">
+    <link rel="stylesheet" th:href="@{/css/headerFragmento.css}">
     <link rel="stylesheet" th:href="@{/css/global.css}">
-    <link rel="stylesheet" th:href="@{/css/editarViagem.css}">
-    <link rel="shotcut icon" th:href="@{/img/Logo_CashFlow.png}">
+    <link rel="stylesheet" th:href="@{/css/travel-form.css}">
     <title>Formulário</title>
 </head>
-
 <body>
-
-    <div th:replace="fragmento/header :: header"></div>
-
-    <form th:action="${mode == 'create'} ? @{/travel/create} : @{/travel/update/__${id}__}" th:object="${travel}"
-        method="post">
-        <h1 id="titulo" th:text="${mode == 'create'} ? 'Adicionar uma viagem' : 'Editar uma viagem'"></h1>
-        <div class="container" id="box_container">
-            <div>
-                <div class="form-row">
-                    <div class="form-group origem-content">
-                        <label for="origin">Origem:</label>
-                        <input type="text" id="origin" name="origin" class="input-origem" th:field="*{origin}" required>
-                    </div>
-                    <div class="datas-content">
-                        <div class="form-group data">
-                            <label for="startDate">Inicio:</label>
-                            <input type="date" id="startDate" name="startDate" class="input-data-inicio"th:field="*{startDate}" requiredminlength="15">
-                        </div>
-                        <div class="form-group data">
-                            <label for="endDate">Fim:</label>
-                            <input type="date" id="endDate" name="department" class="input-data-fim" th:field="*{endDate}">
-                        </div>
-                    </div>
-                    
-                </div>
-                <div class="form-group destino-content">
-                    <label for="destination">Destino:</label>
-                    <input type="text" id="destination" name="destination" class="input-destino"
-                        th:field="*{destination}" required>
+    <div th:replace="fragmentos/headerFragmento :: header"></div>
+    <h1 class="title title-text" th:text="${mode == 'create'} ? 'Adicionar uma viagem' : 'Editar uma viagem'"></h1>
+    <div class="form-container">
+        <form th:action="${mode == 'create'} ? @{/travel/create} : @{/travel/update/__${id}__}" th:object="${travel}" method="post">
+            
+            <div class="form-group">
+                <label for="origin">Origem:</label>
+                <input type="text" id="origin" name="origin" th:field="*{origin}" required>
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="startDate">Início:</label>
+                    <input type="date" id="startDate" name="startDate" th:field="*{startDate}" required>
                 </div>
                 <div class="form-group">
-                    <label for="description">Descrição:</label>
-                    <input type="text" id="description" name="description" class="input-descricao"
-                        th:field="*{description}" required>
+                    <label for="endDate">Fim:</label>
+                    <input type="date" id="endDate" name="endDate" th:field="*{endDate}">
                 </div>
-                <div class="form-group">
-                    <label for="employee">Colaborador:</label>
-                    <select id="employee" name="employeeId" class="input-senha" required
-                        style="height: 30px; border: solid 1px var(--cinza); border-radius: 4px;">
-                        <option value="" th:selected="${travel.employeeId == null}">-- Escolha colaborador --</option>
-                        <option th:selected="${travel.employeeId == employee.id}" th:each="employee : ${employees}"
-                            th:value="${employee.id}" th:text="${employee.name}"></option>
-                    </select>
-                </div>
-                <div class="campos">
-                    <div class="box_campos">
-                        <h3>Despesas da Viagem</h3>
-                        <div class="container_card">
-                            <div class="card" th:each="expense : ${expenses}">
-                                <h4 class="titulo_card" th:text="${expense.description}"></h4>
-                                <p th:text="${expense.category}"></p>
-                                <p th:text="${expense.location}"></p>
-                                <p th:text="${#temporals.format(expense.dateTime, 'dd/MM/yyyy HH:mm')}"></p>
-                                <div class="card_footer">
-                                    <p th:text="${expense.amount}"></p>
-                                    <div class="box_imagem_despesas">
-                                        <img class="img_despesas"
-                                            th:src="@{/api/travels/__${travelId}__/expenses/__${expense.id}__/fiscalNote}">
-                                    </div>
-                                </div>
+            </div>
+            <div class="form-group">
+                <label for="destination">Destino:</label>
+                <input type="text" id="destination" name="destination" th:field="*{destination}" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Descrição:</label>
+                <input type="text" id="description" name="description" th:field="*{description}" required>
+            </div>
+            <div class="form-group">
+                <label for="employee">Colaborador:</label>
+                <select id="employee" name="employeeId" th:field="*{employeeId}" required>
+                    <option value="" th:selected="${travel.employeeId == null}">-- Escolha colaborador --</option>
+                    <option th:each="employee : ${employees}" th:value="${employee.id}" th:text="${employee.name}" th:selected="${travel.employeeId == employee.id}"></option>
+                </select>
+            </div>
+            <div class="expenses-section">
+                <h3>Despesas da Viagem</h3>
+                <div class="expenses-container">
+                    <div class="expense-card" th:each="expense : ${expenses}">
+                        <h4 th:text="${expense.description}"></h4>
+                        <p th:text="${expense.category}"></p>
+                        <p th:text="${expense.location}"></p>
+                        <p th:text="${#temporals.format(expense.dateTime, 'dd/MM/yyyy HH:mm')}"></p>
+                        <div class="expense-footer">
+                            <p th:text="${expense.amount}"></p>
+                            <div class="expense-image-container">
+                                <img th:src="@{/api/travels/__${travelId}__/expenses/__${expense.id}__/fiscalNote}" alt="Fiscal Note">
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="button-group ">
-            <button class="button btn-salvar" type="submit">Salvar</button>
-            <a class="button_vermelho" th:href="@{/travel/list}">Cancelar</a>
-        </div>
-    </form>
-
+            <div class="button-group">
+                <button class="btn btn-blue" type="submit">Salvar</button>
+                <a class="btn btn-red" th:href="@{/travel/list}">Cancelar</a>
+            </div>
+        </form>
+        
+        
+    </div>
+    <div id="modal" class="modal">
+        <span class="close" id="modal-close">&times;</span>
+        <img class="modal-content" id="modal-image">
+    </div>
     <script th:src="@{/js/index.js}"></script>
-
-<div id="image-modal" class="modal">
-    <span class="close">&times;</span>
-    <img class="modal-content" id="modal-image">
-</div>
-
+    <script th:src="@{/js/menu.js}"></script>
 </body>
-
 </html>

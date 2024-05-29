@@ -4,42 +4,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" th:href="@{/css/global.css}">
-    <link rel="stylesheet" th:href="@{/css/colaboradores.css}">
-    <link rel="shotcut icon" th:href="@{/img/Logo_CashFlow.png}">
+    <link rel="stylesheet" th:href="@{/css/headerFragmento.css}">
+    <link rel="stylesheet" th:href="@{/global.css}">
+    <link rel="stylesheet" th:href="@{/css/employee-table.css}">
     <title>Colaboradores</title>
 </head>
-
 <body>
-    <div th:replace="fragmento/header :: header"></div>
-
-    <div class="container1">
-        <h1 id="titulo">Lista de colaboradores</h1>
+    <div th:replace="fragmentos/headerFragmento :: header"></div>
+    <div class="title">
+        <h1 class="title-text">Lista de Colaboradores</h1>
     </div>
-
-    <div class="container">
-        <div id="linha1">
-            <a class="button adicionar" th:href="@{/employee/create}">Adicionar</a>
-            <form th:action="@{/employee/find}" id="box_pesquisa">
-                <input type="search" name="name" id="pesquisa" placeholder="Insira um nome para buscar">
-                <button class="button busca">Buscar</button>
+    <div class="container-form">
+        <div class="content-form">
+            <a class="btn btn-blue" th:href="@{/employee/create}">ADICIONAR</a>
+            <form class="form" th:action="@{/employee/find}">
+                <input class="input-form" type="search" name="name" placeholder="Insira um nome para buscar">
+                <button class="btn btn-blue">BUSCAR</button>
             </form>
         </div>
-        <div id="lista-colaboradores">
-            <div id="colaborador" th:each="employee : ${employees}">
-                <div id="box-colaborador">
-                    <p th:text="${employee.name}" style="margin-left: 5px;"></p>
+        <div class="container-employee">
+            <div class="content-employee" th:each="employee : ${employees}">
+                <div class="employee">
+                    <p th:text="${employee.name}"></p>
                 </div>
-                <div id="opcoes">
-                    <a class="button editar" th:href="@{/employee/update/__${employee.id}__}">Editar</a>
+                <div class="edit-employee">
+                    <a class="btn btn-blue" th:href="@{/employee/update/__${employee.id}__}">EDITAR</a>
                     <form th:action="@{/employee/delete/__${employee.id}__}" method="post">
-                        <button class="button_vermelho deletar" type="submit">Deletar</button>
+                        <button class="btn btn-red" type="submit">DELETAR</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
-
+    <script th:src="@{/js/menu.js}"></script>
 </body>
 
 </html>

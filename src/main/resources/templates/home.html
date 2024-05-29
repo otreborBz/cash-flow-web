@@ -3,28 +3,16 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" th:href="@{/css/headerFragmento.css}" />
+  <link rel="stylesheet" th:href="@{/global.css}">
   <link rel="stylesheet" th:href="@{/css/home.css}" />
-  <link rel="stylesheet" th:href="@{/css/global.css}" />
-  <link rel="shortcut icon" th:href="@{/img/Logo_CashFlow.png}" />
   <title>Cash Flow</title>
 
 </head>
 <body>
-<header>
-  <div class="direito">
-    <a th:href="@{/home}">
-      <!-- <img id="logo" th:src="@{/img/Logo_CashFlow.png}" alt="Logo Cash Flow" /> -->
-    </a>
-  </div>
-  <div id="buttons">
-    <a class="button header" th:href="@{/home}">Inicio</a>
-    <a class="button header" th:href="@{/travel/list}">Viagens</a>
-    <a class="button header" th:href="@{/employee/list}">Colaboradores</a>
-    <form th:action="@{/logout}" method="post">
-      <button class="button_vermelho botao_sair">Sair</button>
-    </form>
-  </div>
-</header>
+
+<div th:replace="fragmentos/headerFragmento :: header"></div>
+
 <div class="box">
   <h1><span class="cash">Cash</span> <span class="flow">Flow</span></h1>
   <p class="description">Monitore e organize seus gastos corporativos</p>
@@ -43,5 +31,7 @@
     </div>
   </div>
 </div>
+
+<script th:src="@{/js/menu.js}"></script>
 </body>
 </html>

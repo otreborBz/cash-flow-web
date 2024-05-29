@@ -1,0 +1,74 @@
+@import url("global.css");
+
+.title{ 
+  width: 100%;
+  height: 5vh;
+  text-align: center;
+}
+.title-text{
+  color: var(--blue);
+  font-weight: lighter;
+}
+
+.container-form{
+  width: 100%;
+  height: 85vh;
+}
+.content-form{
+  height: 5vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+.form{
+  width: 30%;
+  padding: 10px;
+  text-align: end;
+}
+.input-form{
+  width: 70%;
+  height: 40px;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+.btn-form{
+  width: 15%;
+  padding: 10px;
+  border-radius: 5px;
+}
+.container-travel{ 
+  width: 100%;
+  height: 5vh;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.content-travel{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px ;
+  margin-bottom: 10px;
+  background-color: var(--white-variable);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+.travel{
+  width: 80%
+}
+.edit-travel{ 
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 10px;
+}
+.btn-edit{
+  text-align: center;
+  padding: 10px;
+  border-radius: 5px;
+} 
+.btn:hover {
+  opacity: 0.8;
+}

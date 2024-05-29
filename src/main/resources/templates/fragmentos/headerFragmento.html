@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cash Flow</title>
+</head>
+<body>
+  <header th:fragment="header" class="hd-home">
+    <div class="container-nav">
+      <button class="menu btn-menu " id="menu">☰</button>
+      <nav class="nav-links" id="nav-links">
+        <a class="btn btn-blue btn-larger" th:href="@{/home}">Inicio</a>
+        <a class="btn btn-blue btn-larger" th:href="@{/travel/list}">Viagens</a>
+        <a class="btn btn-blue btn-larger" th:href="@{/employee/list}">Colaboradores</a>
+        <form th:action="@{/logout}" method="post">
+          <button class="btn btn-red btn-larger">Sair</button>
+        </form>
+      </nav>
+    </div>
+  </header>
+</body>
+</html>
