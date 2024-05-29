@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url(global.css);
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+body{
+    display: flex;
+}
+
+#superior{
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 250px;
+}
+
+#inferior{
+    position: absolute;
+    bottom: 0%;
+    left: 0%;
+    width: 300px;
+}
+
+#imgLogo{
+    position: fixed;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+}
+
+#textLogo{
+    position: absolute;
+    top: 43%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150px;
+}
+
+#campos{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.campo{
+    width: 250px;
+    height: 25px;
+    border: 2px solid var(--azul);
+    border-radius: 4px;
+    padding-left: 6px;
+}
+
+.entrar{
+    margin-left: 80px;
+    width: 100px;
+}
+
+.checkBox{
+    font-family: 'Roboto',sans-serif;
+    font-weight: 400;
+}
+
+.caixaCheckBox {
+    display: none;
+}
+
+.checkBox {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+.checkBox::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 15px;
+    height: 15px;
+    border: 2px solid var(--cinza);
+    background-color: #fff;
+    border-radius: 4px;
+}
+
+.caixaCheckBox:checked + .checkBox::before {
+    background-color: var(--azul);
+    border-color: var(--azul);
+}
+
+.checkBox::after {
+    content: '\2713';
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translate(-50%, -50%);
+    color: #ffffff;
+    font-size: 14px;
+    line-height: 20px;
+    opacity: 0;
+}
+
+.caixaCheckBox:checked + .checkBox::after {
+    opacity: 1;
+}
+
+/* parte do header */
+
+header {
+    background: #f4f4f9;
+    display: flex;
+    flex-direction: row;
+    padding: 2px;
+}
+
+#logo {
+    max-width: 50px;
+    margin-top: 5px;
+}
+.direito{
+    width: 90%;
+}
+
+.header {
+    display: flex;
+    height: 20px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.drop {
+    margin-top: 5px;
+    margin-left: 10px;
+    height: 40px;
+}
+
+#submenu.active {
+    right: 0;
+}
+
+.botao_sair {
+    margin-left: 5px;
+    margin-top: 5px;
+    height: 40px;
+}
+
+
+
+
+
+
+
+
+

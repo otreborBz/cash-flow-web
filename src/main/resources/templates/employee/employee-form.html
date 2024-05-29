@@ -5,51 +5,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" th:href="@{/css/campos.css}">
-    <link rel="stylesheet" th:href="@{/css/header.css}">
-    <link rel="stylesheet" th:href="@{/css/colors.css}">
+    <link rel="stylesheet" th:href="@{/css/global.css}">
+    <link rel="stylesheet" th:href="@{/css/editarColaborador.css}">
     <link rel="shotcut icon" th:href="@{/img/Logo_CashFlow.png}">
     <title>Formulário</title>
 </head>
 
 <body style="background-color: var(--branco)">
-    <header>
-        <div class="direito"><a th:href="@{/home}"><img id="logo" th:src="@{/img/Logo_CashFlow.png}" alt=""></a></div>
-        <div id="buttons">
-            <a class="button header" th:href="@{/home}">Inicio</a>
-            <a class="button header" th:href="@{/travel/list}">Viagens</a>
-            <a class="button header" th:href="@{/employee/list}">Colaboradores</a>
-            <form th:action="@{/logout}" method="post">
-                <button class="button_vermelho botao_sair">Sair</button>
-            </form>
-        </div>
-    </header>
+    <div th:replace="fragmento/header :: header"></div>
 
     <form th:action="${mode == 'create'} ? @{/employee/create} : @{/employee/update/__${id}__}" th:object="${employee}"
         method="post">
         <h1 id="titulo" th:text="${mode == 'create'} ? 'Adicionar um colaborador' : 'Editar um colaborador'"></h1>
         <div class="container">
             <div>
-                <div class="form-group">
+                <div class="form-group nome-content">
                     <label for="nome">Nome:</label>
                     <input type="text" id="nome" name="name" class="input-nome" th:field="*{name}" required>
                 </div>
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="form-group email-content">
                         <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" class="input-email large-input" th:field="*{email}"
+                        <input type="email" id="email" name="email" class="input-email" th:field="*{email}"
                             required>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group cpf-content">
                         <label for="cpf">CPF:</label>
-                        <input type="text" id="cpf" name="cpf" class="input-cpf large-input" th:field="*{cpf}" required>
+                        <input type="text" id="cpf" name="cpf" class="input-cpf" th:field="*{cpf}" required>
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="form-group">
+                    <div class="form-group setor-content">
                         <label for="setor">Setor:</label>
                         <input type="text" id="setor" name="department" class="input-setor" th:field="*{department}">
                     </div>
-                    <div class="form-group">
+                    <div class="form-group telefone-content">
                         <label for="telefone">Telefone:</label>
                         <input type="tel" id="telefone" name="phone" class="input-telefone" th:field="*{phone}"
                             required>

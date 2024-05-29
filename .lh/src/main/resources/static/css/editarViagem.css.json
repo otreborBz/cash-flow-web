@@ -1,0 +1,282 @@
+{
+    "sourceFile": "src/main/resources/static/css/editarViagem.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 66,
+            "patches": [
+                {
+                    "date": 1716895643933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716895654869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,18 +33,18 @@\n     flex-direction: row;\n     margin-right: 40px;\n }\n \n-/* #startDate {\n+#startDate {\n     width: 100px;\n     margin-right: 10px;\n }\n \n #endDate {\n     width: 100px;\n     margin-left: 20px;\n \n-} */\n+}\n \n \n #description {\n     width: 98%;\n"
+                },
+                {
+                    "date": 1716895681765,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     display: flex;\n     flex-direction: row;\n     margin-right: 40px;\n }\n-\n+/* \n #startDate {\n     width: 100px;\n     margin-right: 10px;\n }\n@@ -42,9 +42,9 @@\n #endDate {\n     width: 100px;\n     margin-left: 20px;\n \n-}\n+} */\n \n \n #description {\n     width: 98%;\n"
+                },
+                {
+                    "date": 1716895688404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     display: flex;\n     flex-direction: row;\n     margin-right: 40px;\n }\n-/* \n+\n #startDate {\n     width: 100px;\n     margin-right: 10px;\n }\n@@ -42,9 +42,9 @@\n #endDate {\n     width: 100px;\n     margin-left: 20px;\n \n-} */\n+}\n \n \n #description {\n     width: 98%;\n"
+                },
+                {
+                    "date": 1716895694646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n     display: flex;\n     flex-direction: row;\n     margin-right: 40px;\n }\n-\n+/* \n #startDate {\n     width: 100px;\n     margin-right: 10px;\n }\n@@ -42,9 +42,9 @@\n #endDate {\n     width: 100px;\n     margin-left: 20px;\n \n-}\n+} */\n \n \n #description {\n     width: 98%;\n"
+                },
+                {
+                    "date": 1716895708976,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,8 +31,9 @@\n .box_datas {\n     display: flex;\n     flex-direction: row;\n     margin-right: 40px;\n+    border: soli;\n }\n /* \n #startDate {\n     width: 100px;\n"
+                },
+                {
+                    "date": 1716895722464,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,10 +30,10 @@\n \n .box_datas {\n     display: flex;\n     flex-direction: row;\n-    margin-right: 40px;\n-    border: soli;\n+    margin-right: 30px;\n+    border: solid 1px red;\n }\n /* \n #startDate {\n     width: 100px;\n"
+                },
+                {
+                    "date": 1716895735513,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n .data {\n     padding: 2px;\n     margin-top: 10px;\n     border-radius: 4px;\n+    border: s;\n }\n \n .box_datas {\n     display: flex;\n"
+                },
+                {
+                    "date": 1716895740806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n .data {\n     padding: 2px;\n     margin-top: 10px;\n     border-radius: 4px;\n-    border: s;\n+    border: solid 1px blue;\n }\n \n .box_datas {\n     display: flex;\n"
+                },
+                {
+                    "date": 1716895755560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,8 @@\n \n .data {\n     padding: 2px;\n     margin-top: 10px;\n-    border-radius: 4px;\n     border: solid 1px blue;\n }\n \n .box_datas {\n"
+                },
+                {
+                    "date": 1716895766811,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n }\n \n .data {\n     padding: 2px;\n-    margin-top: 10px;\n+\n     border: solid 1px blue;\n }\n \n .box_datas {\n"
+                },
+                {
+                    "date": 1716895775933,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,8 @@\n }\n \n .data {\n     padding: 2px;\n-\n     border: solid 1px blue;\n }\n \n .box_datas {\n"
+                },
+                {
+                    "date": 1716895797273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,11 +17,8 @@\n     align-items: center;\n     margin: 10px;\n }\n \n-.input-nome {\n-    width: 400px;\n-}\n \n .data {\n     padding: 2px;\n     border: solid 1px blue;\n"
+                },
+                {
+                    "date": 1716895810956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,11 @@\n     align-items: center;\n     margin: 10px;\n }\n \n+/* .input-nome {\n+    width: 400px;\n+} */\n \n .data {\n     padding: 2px;\n     border: solid 1px blue;\n"
+                },
+                {
+                    "date": 1716895842753,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,11 +17,11 @@\n     align-items: center;\n     margin: 10px;\n }\n \n-/* .input-nome {\n+.input-nome {\n     width: 400px;\n-} */\n+}\n \n .data {\n     padding: 2px;\n     border: solid 1px blue;\n"
+                },
+                {
+                    "date": 1716895853568,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,10 +17,10 @@\n     align-items: center;\n     margin: 10px;\n }\n \n-.input-nome {\n-    width: 400px;\n+.input-origem {\n+    width: 100%;\n }\n \n .data {\n     padding: 2px;\n"
+                },
+                {
+                    "date": 1716895860790,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     margin: 10px;\n }\n \n .input-origem {\n-    width: 100%;\n+    width: 70%;\n }\n \n .data {\n     padding: 2px;\n"
+                },
+                {
+                    "date": 1716895875955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,8 +30,9 @@\n .box_datas {\n     display: flex;\n     flex-direction: row;\n     margin-right: 30px;\n+    a\n     border: solid 1px red;\n }\n /* \n #startDate {\n"
+                },
+                {
+                    "date": 1716895882072,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n .box_datas {\n     display: flex;\n     flex-direction: row;\n     margin-right: 30px;\n-    a\n+    margin-top: 10px;\n     border: solid 1px red;\n }\n /* \n #startDate {\n"
+                },
+                {
+                    "date": 1716895891099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,9 +30,9 @@\n .box_datas {\n     display: flex;\n     flex-direction: row;\n     margin-right: 30px;\n-    margin-top: 10px;\n+    margin-top: px;\n     border: solid 1px red;\n }\n /* \n #startDate {\n"
+                },
+                {
+                    "date": 1716895902980,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,24 +30,12 @@\n .box_datas {\n     display: flex;\n     flex-direction: row;\n     margin-right: 30px;\n-    margin-top: px;\n+    margin-top: 5px;\n     border: solid 1px red;\n }\n-/* \n-#startDate {\n-    width: 100px;\n-    margin-right: 10px;\n-}\n \n-#endDate {\n-    width: 100px;\n-    margin-left: 20px;\n-\n-} */\n-\n-\n #description {\n     width: 98%;\n }\n \n"
+                },
+                {
+                    "date": 1716896049360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,12 +34,10 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n-#description {\n-    width: 98%;\n-}\n \n+\n .geral {\n     padding: 5px;\n }\n \n"
+                },
+                {
+                    "date": 1716896056475,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,10 +34,10 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n+.input\n \n-\n .geral {\n     padding: 5px;\n }\n \n"
+                },
+                {
+                    "date": 1716896063684,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,11 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n-.input\n+.input-descricao{\n+    \n+}\n \n .geral {\n     padding: 5px;\n }\n"
+                },
+                {
+                    "date": 1716896091543,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n     border: solid 1px red;\n }\n \n .input-descricao{\n-    \n+    whi\n }\n \n .geral {\n     padding: 5px;\n"
+                },
+                {
+                    "date": 1716896100964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n     border: solid 1px red;\n }\n \n .input-descricao{\n-    whi\n+    width: 100%;\n }\n \n .geral {\n     padding: 5px;\n"
+                },
+                {
+                    "date": 1716896106327,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n     border: solid 1px red;\n }\n \n .input-descricao{\n-    width: 100%;\n+    width: 900%;\n }\n \n .geral {\n     padding: 5px;\n"
+                },
+                {
+                    "date": 1716896164112,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n     border: solid 1px red;\n }\n \n .input-descricao{\n-    width: 900%;\n+    width: 80%;\n }\n \n .geral {\n     padding: 5px;\n"
+                },
+                {
+                    "date": 1716896171306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n     border: solid 1px red;\n }\n \n .input-descricao{\n-    width: 80%;\n+    width: 0%;\n }\n \n .geral {\n     padding: 5px;\n"
+                },
+                {
+                    "date": 1716896180655,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n     border: solid 1px red;\n }\n \n .input-descricao{\n-    width: 0%;\n+    width: 72%;\n }\n \n .geral {\n     padding: 5px;\n"
+                },
+                {
+                    "date": 1716896387574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,10 +34,10 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n-.input-descricao{\n-    width: 72%;\n+.input-descricao, {\n+    width: 71%;\n }\n \n .geral {\n     padding: 5px;\n"
+                },
+                {
+                    "date": 1716896394092,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n-.input-descricao, {\n+.input-descricao, input-destino{\n     width: 71%;\n }\n \n .geral {\n"
+                },
+                {
+                    "date": 1716896405117,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n-.input-descricao, input-destino{\n+.input-descricao input-destino{\n     width: 71%;\n }\n \n .geral {\n"
+                },
+                {
+                    "date": 1716896411909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n-.input-descricao input-destino{\n+.input-descricao,.input-destino{\n     width: 71%;\n }\n \n .geral {\n"
+                },
+                {
+                    "date": 1716896607356,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,9 +34,9 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n-.input-descricao,.input-destino{\n+.input-descricao,input-destino{\n     width: 71%;\n }\n \n .geral {\n"
+                },
+                {
+                    "date": 1716896651003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n     align-items: center;\n     margin: 10px;\n }\n \n+\n .input-origem {\n     width: 70%;\n }\n \n@@ -34,9 +35,9 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n-.input-descricao,input-destino{\n+.input-descricao,.input-destino{\n     width: 71%;\n }\n \n .geral {\n"
+                },
+                {
+                    "date": 1716896658498,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,11 @@\n     align-items: center;\n     margin: 10px;\n }\n \n+input{\n+    bor\n+}\n \n .input-origem {\n     width: 70%;\n }\n"
+                },
+                {
+                    "date": 1716896666634,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     margin: 10px;\n }\n \n input{\n-    bor\n+    ar\n }\n \n .input-origem {\n     width: 70%;\n"
+                },
+                {
+                    "date": 1716896672054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     margin: 10px;\n }\n \n input{\n-    ar\n+    margin-left: 10px;\n }\n \n .input-origem {\n     width: 70%;\n"
+                },
+                {
+                    "date": 1716896856070,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,9 @@\n }\n \n input{\n     margin-left: 10px;\n+    \n }\n \n .input-origem {\n     width: 70%;\n"
+                },
+                {
+                    "date": 1716896861969,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n }\n \n input{\n     margin-left: 10px;\n-    \n+    width: 100;\n }\n \n .input-origem {\n     width: 70%;\n"
+                },
+                {
+                    "date": 1716896875729,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,9 +19,9 @@\n }\n \n input{\n     margin-left: 10px;\n-    width: 100;\n+    \n }\n \n .input-origem {\n     width: 70%;\n"
+                },
+                {
+                    "date": 1716896918607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,13 +17,8 @@\n     align-items: center;\n     margin: 10px;\n }\n \n-input{\n-    margin-left: 10px;\n-    \n-}\n-\n .input-origem {\n     width: 70%;\n }\n \n"
+                },
+                {
+                    "date": 1716896997845,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,8 +10,10 @@\n     height: 99vh;\n     background-color: var(--branco);\n }\n \n+\n+\n h2 {\n     display: flex;\n     justify-content: center;\n     align-items: center;\n"
+                },
+                {
+                    "date": 1716897004275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,17 +10,26 @@\n     height: 99vh;\n     background-color: var(--branco);\n }\n \n-\n-\n h2 {\n     display: flex;\n     justify-content: center;\n     align-items: center;\n     margin: 10px;\n }\n \n+.container {\n+    max-width: 95%;\n+    margin: 0 auto;\n+    background-color: var(--branco);\n+    border-radius: 8px;\n+    padding: 20px;\n+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n+}\n+\n+\n+\n .input-origem {\n     width: 70%;\n }\n \n"
+                },
+                {
+                    "date": 1716897014694,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,8 @@\n     padding: 20px;\n     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n }\n \n-\n-\n .input-origem {\n     width: 70%;\n }\n \n"
+                },
+                {
+                    "date": 1716897021474,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n     width: 70%;\n }\n \n .data {\n-    padding: 2px;\n+    \n     border: solid 1px blue;\n }\n \n .box_datas {\n"
+                },
+                {
+                    "date": 1716897028463,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,8 @@\n     width: 70%;\n }\n \n .data {\n-    \n     border: solid 1px blue;\n }\n \n .box_datas {\n"
+                },
+                {
+                    "date": 1716897043555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,8 @@\n }\n \n .box_datas {\n     display: flex;\n-    flex-direction: row;\n     margin-right: 30px;\n     margin-top: 5px;\n     border: solid 1px red;\n }\n"
+                },
+                {
+                    "date": 1716897091217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,11 +41,11 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n-.input-descricao,.input-destino{\n+/* .input-descricao,.input-destino{\n     width: 71%;\n-}\n+} */\n \n .geral {\n     padding: 5px;\n }\n"
+                },
+                {
+                    "date": 1716897099155,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,11 +41,11 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n-/* .input-descricao,.input-destino{\n+.input-descricao,.input-destino{\n     width: 71%;\n-} */\n+}\n \n .geral {\n     padding: 5px;\n }\n"
+                },
+                {
+                    "date": 1716897130683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n-.input-descricao,.input-destino{\n+.input-descricao,input-destino{\n     width: 71%;\n }\n \n .geral {\n"
+                },
+                {
+                    "date": 1716897138453,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n     border: solid 1px red;\n }\n \n .input-descricao,input-destino{\n-    width: 71%;\n+    width: 100%;\n }\n \n .geral {\n     padding: 5px;\n"
+                },
+                {
+                    "date": 1716897149007,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n     border: solid 1px red;\n }\n \n .input-descricao,input-destino{\n-    width: 100%;\n+    width: 90%;\n }\n \n .geral {\n     padding: 5px;\n"
+                },
+                {
+                    "date": 1716897162669,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,10 +41,10 @@\n     margin-top: 5px;\n     border: solid 1px red;\n }\n \n-.input-descricao,input-destino{\n-    width: 90%;\n+.input-descricao{\n+    width: 98%;\n }\n \n .geral {\n     padding: 5px;\n"
+                },
+                {
+                    "date": 1716897168182,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,8 +44,9 @@\n \n .input-descricao{\n     width: 98%;\n }\n+.inpu\n \n .geral {\n     padding: 5px;\n }\n"
+                },
+                {
+                    "date": 1716897176324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,11 @@\n \n .input-descricao{\n     width: 98%;\n }\n-.inpu\n+.input-descricao{\n+    \n+}\n \n .geral {\n     padding: 5px;\n }\n"
+                },
+                {
+                    "date": 1716897181860,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -45,9 +45,9 @@\n .input-descricao{\n     width: 98%;\n }\n .input-descricao{\n-    \n+    width: 98%;\n }\n \n .geral {\n     padding: 5px;\n"
+                },
+                {
+                    "date": 1716897195814,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n \n .input-descricao{\n     width: 98%;\n }\n-.input-descricao{\n+.input-destino{\n     width: 98%;\n }\n \n .geral {\n"
+                },
+                {
+                    "date": 1716897775360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,8 +149,9 @@\n     display: flex;\n     flex-direction: row;\n     flex-wrap: wrap;\n     justify-content: flex-start;\n+    bor\n }\n \n .card {\n     margin: 10px;\n"
+                },
+                {
+                    "date": 1716897780867,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -149,9 +149,9 @@\n     display: flex;\n     flex-direction: row;\n     flex-wrap: wrap;\n     justify-content: flex-start;\n-    bor\n+    border: solid 1px red;\n }\n \n .card {\n     margin: 10px;\n"
+                },
+                {
+                    "date": 1716897786192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -144,8 +144,10 @@\n     height: 60px;\n     resize: none;\n }\n \n+\n+\n .container_card {\n     display: flex;\n     flex-direction: row;\n     flex-wrap: wrap;\n"
+                },
+                {
+                    "date": 1716897794606,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -144,10 +144,10 @@\n     height: 60px;\n     resize: none;\n }\n \n+parte dos cardes\n \n-\n .container_card {\n     display: flex;\n     flex-direction: row;\n     flex-wrap: wrap;\n"
+                },
+                {
+                    "date": 1716897804622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -142,12 +142,18 @@\n     display: flex;\n     width: 1116px;\n     height: 60px;\n     resize: none;\n+    bor\n }\n \n-parte dos cardes\n \n+\n+\n+\n+\n+/* parte dos cardes */\n+\n .container_card {\n     display: flex;\n     flex-direction: row;\n     flex-wrap: wrap;\n"
+                },
+                {
+                    "date": 1716897815455,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -137,21 +137,15 @@\n     width: 308px;\n     margin-left: 200px;\n }\n \n-.descricao {\n-    display: flex;\n-    width: 1116px;\n-    height: 60px;\n-    resize: none;\n-    bor\n-}\n \n \n \n \n \n \n+\n /* parte dos cardes */\n \n .container_card {\n     display: flex;\n"
+                },
+                {
+                    "date": 1716897826570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -135,9 +135,9 @@\n \n .orcamento {\n     width: 308px;\n     margin-left: 200px;\n-    border: soli;\n+    border: solid 1px #;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1716897958756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -102,9 +102,10 @@\n     padding-left: 5px;\n }\n \n .origem {\n-    width: 600px;    margin-top: 10px;\n+    width: 600px;\n+    margin-top: 10px;\n     border: solid 1px red;\n }\n \n \n"
+                }
+            ],
+            "date": 1716895643933,
+            "name": "Commit-0",
+            "content": "@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\n\n* {\n    font-family: 'Roboto', sans-serif;\n}\n\nbody {\n    display: flex;\n    flex-direction: column;\n    height: 99vh;\n    background-color: var(--branco);\n}\n\nh2 {\n    display: flex;\n    justify-content: center;\n    align-items: center;\n    margin: 10px;\n}\n\n.input-nome {\n    width: 400px;\n}\n\n.data {\n    padding: 2px;\n    margin-top: 10px;\n    border-radius: 4px;\n}\n\n.box_datas {\n    display: flex;\n    flex-direction: row;\n    margin-right: 40px;\n}\n\n/* #startDate {\n    width: 100px;\n    margin-right: 10px;\n}\n\n#endDate {\n    width: 100px;\n    margin-left: 20px;\n\n} */\n\n\n#description {\n    width: 98%;\n}\n\n.geral {\n    padding: 5px;\n}\n\n.container_geral {\n    display: flex;\n    background-color: var(--branco);\n    padding: 10px;\n    height: 67vh;\n    border-radius: 4px;\n}\n\n.container {\n    display: flex;\n    flex-direction: column;\n    overflow: auto;\n    width: 100%;\n    padding: 5px;\n}\n\n.container::-webkit-scrollbar {\n    width: 2px;\n    height: 2px;\n}\n\n.container::-webkit-scrollbar-thumb {\n    background-color: black;\n}\n\n.container::-webkit-scrollbar-track {\n    background-color: var(--cinza);\n}\n\n.campos {\n    display: flex;\n    flex-direction: row;\n    padding: 10px;\n    border-radius: 4px;\n}\n\n.box_campos {\n    display: flex;\n    flex-direction: column;\n}\n\n.campo {\n    border: 2px solid var(--azul);\n    border-radius: 4px;\n    margin-top: 5px;\n    height: 25px;\n    padding-left: 5px;\n}\n\n.origem {\n    width: 600px;\n    margin-top: 10px;\n}\n\n.txt_campo_inicio {\n    margin-left: 200px;\n}\n\n.inicio {\n    width: 130px;\n    margin-left: 200px;\n}\n\n.txt_campo_fim {\n    margin-left: 40px;\n}\n\n.fim {\n    width: 130px;\n    margin-left: 40px;\n}\n\n.destino {\n    width: 600px;\n}\n\n.txt_campo_orcamento {\n    margin-left: 200px;\n}\n\n.orcamento {\n    width: 308px;\n    margin-left: 200px;\n}\n\n.descricao {\n    display: flex;\n    width: 1116px;\n    height: 60px;\n    resize: none;\n}\n\n.container_card {\n    display: flex;\n    flex-direction: row;\n    flex-wrap: wrap;\n    justify-content: flex-start;\n}\n\n.card {\n    margin: 10px;\n    display: flex;\n    flex-direction: column;\n    width: 250px;\n    border-radius: 4px;\n    background-color: var(--cinza);\n    padding: 5px;\n}\n\n.card_footer {\n    display: flex;\n    flex-direction: row;\n    justify-content: space-between;\n    margin-top: 15px;\n}\n\n.box_imagem_despesas {\n    display: flex;\n    max-height: 110px;\n    width: 80px;\n    padding: 1px;\n    cursor: pointer;\n}\n\n.img_despesas {\n    width: 100%;\n    height: 100%;\n    border-radius: 2px;\n}\n\n\n.buttons {\n    display: flex;\n    flex-direction: row;\n    margin-top: 5px;\n    margin-left: 84%;\n}\n\n.salvar {\n    margin-left: 5px;\n}\n\n.voltar {\n    margin-left: 5px;\n    height: 16px;\n}\n\n/* codigo do modal */\n\n.modal {\n    display: none;\n    position: fixed;\n    z-index: 1000;\n    left: 0;\n    top: 0;\n    width: 100%;\n    height: 100%;\n    overflow: auto;\n    background-color: rgba(0, 0, 0, 0.9);\n}\n\n.modal-content {\n    margin: auto;\n    display: block;\n    width: 80%;\n    max-width: 700px;\n    transition: transform 0.3s ease;\n}\n\n.close {\n    display: none;\n}\n\n@keyframes zoom {\n    from {\n        transform: scale(0.1);\n    }\n    to {\n        transform: scale(1);\n    }\n}\n\n.modal-content {\n    animation: zoom 0.3s;\n}\n\n\n\n\n\n"
+        }
+    ]
+}

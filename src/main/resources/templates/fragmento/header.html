@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <header th:fragment="header">
+    <div class="logo">
+        <h3><span class="cash">Cash</span></h3>
+        <h3><span class="flow">Flow</span></h3>
+    </div>
+    <div id="buttons">
+        <a class="button header" th:href="@{/home}">Inicio</a>
+        <a class="button header" th:href="@{/travel/list}">Viagens</a>
+        <a class="button header" th:href="@{/employee/list}">Colaboradores</a>
+        <form th:action="@{/logout}" method="post">
+            <button class="button_vermelho botao_sair">Sair</button>
+        </form>
+    </div>
+</header>
+  
+</body>
+</html>

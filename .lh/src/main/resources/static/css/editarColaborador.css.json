@@ -1,0 +1,378 @@
+{
+    "sourceFile": "src/main/resources/static/css/editarColaborador.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 90,
+            "patches": [
+                {
+                    "date": 1716893694936,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1716893735404,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,13 +56,13 @@\n     width: 100%; /* Largura padrão */\n }\n \n .input-email {\n-    width: ; /* Ajuste o tamanho conforme necessário */\n+    width: 40%; /* Ajuste o tamanho conforme necessário */\n }\n \n .input-cpf {\n-    width: 400px; /* Ajuste o tamanho conforme necessário */\n+    width: ; /* Ajuste o tamanho conforme necessário */\n }\n \n .input-cargo,\n .input-setor,\n"
+                },
+                {
+                    "date": 1716893851324,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,13 +56,13 @@\n     width: 100%; /* Largura padrão */\n }\n \n .input-email {\n-    width: 40%; /* Ajuste o tamanho conforme necessário */\n+    width: 20%; /* Ajuste o tamanho conforme necessário */\n }\n \n .input-cpf {\n-    width: ; /* Ajuste o tamanho conforme necessário */\n+    width: 40%; /* Ajuste o tamanho conforme necessário */\n }\n \n .input-cargo,\n .input-setor,\n"
+                },
+                {
+                    "date": 1716893892493,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n     width: 20%; /* Ajuste o tamanho conforme necessário */\n }\n \n .input-cpf {\n-    width: 40%; /* Ajuste o tamanho conforme necessário */\n+    width: 20%; /* Ajuste o tamanho conforme necessário */\n }\n \n .input-cargo,\n .input-setor,\n"
+                },
+                {
+                    "date": 1716894071901,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n     width: 100%; /* Largura padrão */\n }\n \n .input-email {\n-    width: 20%; /* Ajuste o tamanho conforme necessário */\n+    width: 50%; /* Ajuste o tamanho conforme necessário */\n }\n \n .input-cpf {\n     width: 20%; /* Ajuste o tamanho conforme necessário */\n"
+                },
+                {
+                    "date": 1716894079349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -56,9 +56,9 @@\n     width: 100%; /* Largura padrão */\n }\n \n .input-email {\n-    width: 50%; /* Ajuste o tamanho conforme necessário */\n+    width: 100%; /* Ajuste o tamanho conforme necessário */\n }\n \n .input-cpf {\n     width: 20%; /* Ajuste o tamanho conforme necessário */\n"
+                },
+                {
+                    "date": 1716894090002,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n     width: 100%; /* Ajuste o tamanho conforme necessário */\n }\n \n .input-cpf {\n-    width: 20%; /* Ajuste o tamanho conforme necessário */\n+    width: 80%; /* Ajuste o tamanho conforme necessário */\n }\n \n .input-cargo,\n .input-setor,\n"
+                },
+                {
+                    "date": 1716894108249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -66,9 +66,9 @@\n \n .input-cargo,\n .input-setor,\n .input-telefone {\n-    width: 300px; \n+    width: 120%; \n }\n \n .input-senha {\n     width: auto;\n"
+                },
+                {
+                    "date": 1716894143375,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,9 +77,9 @@\n .button-group {\n     display: flex;\n     flex-direction: row;\n     margin-top: 10px;\n-    margin-left: 74%;\n+    margin-left: 70%;\n }\n \n .button-group button {\n     margin-right: 10px;\n"
+                },
+                {
+                    "date": 1716894152457,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,9 +77,9 @@\n .button-group {\n     display: flex;\n     flex-direction: row;\n     margin-top: 10px;\n-    margin-left: 70%;\n+    margin-left: %;\n }\n \n .button-group button {\n     margin-right: 10px;\n"
+                },
+                {
+                    "date": 1716894173189,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -77,9 +77,10 @@\n .button-group {\n     display: flex;\n     flex-direction: row;\n     margin-top: 10px;\n-    margin-left: %;\n+    margin-left: 60%;\n+    border: solid 1px red;\n }\n \n .button-group button {\n     margin-right: 10px;\n"
+                },
+                {
+                    "date": 1716894181595,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,100 @@\n+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\n+@import url(\"colors.css\");\n+*{\n+    font-family: 'Roboto',sans-serif;\n+}\n+\n+.body {\n+    font-family: Arial, sans-serif;\n+    background-color: var(--branco);\n+    margin: 0;\n+    padding: 20px;\n+}\n+\n+.container {\n+    max-width: 1000px;\n+    margin: 0 auto;\n+    background-color: #fff;\n+    border-radius: 8px;\n+    padding: 20px;\n+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n+}\n+\n+h1 {\n+    font-size: 24px;\n+    font-weight: bold;\n+    text-align: center;\n+    margin-bottom: 20px;\n+}\n+\n+.form-row {\n+    display: flex;\n+    justify-content: space-between;\n+}\n+\n+.form-group {\n+    margin-bottom: 20px;\n+}\n+\n+.form-group label {\n+    display: block;\n+    font-weight: bold;\n+    margin-bottom: 5px;\n+}\n+\n+.form-group input[type=\"text\"],\n+.form-group input[type=\"email\"],\n+.form-group input[type=\"password\"],\n+.form-group input[type=\"tel\"] {\n+    padding: 8px;\n+    border-radius: 4px;\n+    border: 1px solid #ccc;\n+    box-sizing: border-box;\n+}\n+\n+.input-nome {\n+    width: 100%; /* Largura padrão */\n+}\n+\n+.input-email {\n+    width: 100%; /* Ajuste o tamanho conforme necessário */\n+}\n+\n+.input-cpf {\n+    width: 80%; /* Ajuste o tamanho conforme necessário */\n+}\n+\n+.input-cargo,\n+.input-setor,\n+.input-telefone {\n+    width: 120%; \n+}\n+\n+.input-senha {\n+    width: auto;\n+}\n+\n+.button-group {\n+    display: flex;\n+    flex-direction: row;\n+    margin-top: 10px;\n+    /* margin-left: 60%; */\n+    border: solid 1px red;\n+}\n+\n+.button-group button {\n+    margin-right: 10px;\n+    padding: 10px 20px;\n+    border: none;\n+    border-radius: 4px;\n+    cursor: pointer;\n+    \n+}\n+\n+.adicionar{\n+    height: 40px;\n+}\n+\n+\n+\n+\n"
+                },
+                {
+                    "date": 1716894238965,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,8 +33,9 @@\n }\n \n .form-group {\n     margin-bottom: 20px;\n+    border: soli;\n }\n \n .form-group label {\n     display: block;\n@@ -97,104 +98,4 @@\n \n \n \n \n-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\n-@import url(\"colors.css\");\n-*{\n-    font-family: 'Roboto',sans-serif;\n-}\n-\n-.body {\n-    font-family: Arial, sans-serif;\n-    background-color: var(--branco);\n-    margin: 0;\n-    padding: 20px;\n-}\n-\n-.container {\n-    max-width: 1000px;\n-    margin: 0 auto;\n-    background-color: #fff;\n-    border-radius: 8px;\n-    padding: 20px;\n-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n-}\n-\n-h1 {\n-    font-size: 24px;\n-    font-weight: bold;\n-    text-align: center;\n-    margin-bottom: 20px;\n-}\n-\n-.form-row {\n-    display: flex;\n-    justify-content: space-between;\n-}\n-\n-.form-group {\n-    margin-bottom: 20px;\n-}\n-\n-.form-group label {\n-    display: block;\n-    font-weight: bold;\n-    margin-bottom: 5px;\n-}\n-\n-.form-group input[type=\"text\"],\n-.form-group input[type=\"email\"],\n-.form-group input[type=\"password\"],\n-.form-group input[type=\"tel\"] {\n-    padding: 8px;\n-    border-radius: 4px;\n-    border: 1px solid #ccc;\n-    box-sizing: border-box;\n-}\n-\n-.input-nome {\n-    width: 100%; /* Largura padrão */\n-}\n-\n-.input-email {\n-    width: 100%; /* Ajuste o tamanho conforme necessário */\n-}\n-\n-.input-cpf {\n-    width: 80%; /* Ajuste o tamanho conforme necessário */\n-}\n-\n-.input-cargo,\n-.input-setor,\n-.input-telefone {\n-    width: 120%; \n-}\n-\n-.input-senha {\n-    width: auto;\n-}\n-\n-.button-group {\n-    display: flex;\n-    flex-direction: row;\n-    margin-top: 10px;\n-    margin-left: 60%;\n-    border: solid 1px red;\n-}\n-\n-.button-group button {\n-    margin-right: 10px;\n-    padding: 10px 20px;\n-    border: none;\n-    border-radius: 4px;\n-    cursor: pointer;\n-    \n-}\n-\n-.adicionar{\n-    height: 40px;\n-}\n-\n-\n-\n-\n"
+                },
+                {
+                    "date": 1716894393551,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,14 +28,14 @@\n }\n \n .form-row {\n     display: flex;\n-    justify-content: space-between;\n+    \n }\n \n .form-group {\n     margin-bottom: 20px;\n-    border: soli;\n+    border: solid 1px red;\n }\n \n .form-group label {\n     display: block;\n"
+                },
+                {
+                    "date": 1716894402273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,8 @@\n }\n \n .form-row {\n     display: flex;\n-    \n }\n \n .form-group {\n     margin-bottom: 20px;\n"
+                },
+                {
+                    "date": 1716894467169,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -60,9 +60,9 @@\n     width: 100%; /* Ajuste o tamanho conforme necessário */\n }\n \n .input-cpf {\n-    width: 80%; /* Ajuste o tamanho conforme necessário */\n+    width: 100%; /* Ajuste o tamanho conforme necessário */\n }\n \n .input-cargo,\n .input-setor,\n"
+                },
+                {
+                    "date": 1716894597806,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n }\n \n-.input-nome {\n+/* .input-nome {\n     width: 100%; /* Largura padrão */\n }\n \n .input-email {\n@@ -61,9 +61,9 @@\n }\n \n .input-cpf {\n     width: 100%; /* Ajuste o tamanho conforme necessário */\n-}\n+} */\n \n .input-cargo,\n .input-setor,\n .input-telefone {\n"
+                },
+                {
+                    "date": 1716894612997,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n }\n \n-/* .input-nome {\n+.input-nome {\n     width: 100%; /* Largura padrão */\n }\n \n .input-email {\n@@ -61,9 +61,9 @@\n }\n \n .input-cpf {\n     width: 100%; /* Ajuste o tamanho conforme necessário */\n-} */\n+}\n \n .input-cargo,\n .input-setor,\n .input-telefone {\n"
+                },
+                {
+                    "date": 1716894621486,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,12 +50,12 @@\n     border-radius: 4px;\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n }\n-\n+/* \n .input-nome {\n     width: 100%; /* Largura padrão */\n-}\n+} */\n \n .input-email {\n     width: 100%; /* Ajuste o tamanho conforme necessário */\n }\n"
+                },
+                {
+                    "date": 1716894627590,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n     box-sizing: border-box;\n }\n /* \n .input-nome {\n-    width: 100%; /* Largura padrão */\n+    width: 100%; /* Largura padrão *\n } */\n \n .input-email {\n     width: 100%; /* Ajuste o tamanho conforme necessário */\n"
+                },
+                {
+                    "date": 1716894640068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,12 +50,12 @@\n     border-radius: 4px;\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n }\n-/* \n+\n .input-nome {\n-    width: 100%; /* Largura padrão *\n-} */\n+    width: 100%; /* Largura padrão */\n+}\n \n .input-email {\n     width: 100%; /* Ajuste o tamanho conforme necessário */\n }\n"
+                },
+                {
+                    "date": 1716894649204,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,11 +51,8 @@\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n }\n \n-.input-nome {\n-    width: 100%; /* Largura padrão */\n-}\n \n .input-email {\n     width: 100%; /* Ajuste o tamanho conforme necessário */\n }\n"
+                },
+                {
+                    "date": 1716894839660,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,16 +52,9 @@\n     box-sizing: border-box;\n }\n \n \n-.input-email {\n-    width: 100%; /* Ajuste o tamanho conforme necessário */\n-}\n \n-.input-cpf {\n-    width: 100%; /* Ajuste o tamanho conforme necessário */\n-}\n-\n .input-cargo,\n .input-setor,\n .input-telefone {\n     width: 120%; \n@@ -74,9 +67,8 @@\n .button-group {\n     display: flex;\n     flex-direction: row;\n     margin-top: 10px;\n-    /* margin-left: 60%; */\n     border: solid 1px red;\n }\n \n .button-group button {\n"
+                },
+                {
+                    "date": 1716894849041,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,24 +62,24 @@\n \n .input-senha {\n     width: auto;\n }\n-\n+/* \n .button-group {\n     display: flex;\n     flex-direction: row;\n     margin-top: 10px;\n     border: solid 1px red;\n-}\n+} */\n \n-.button-group button {\n+/* .button-group button {\n     margin-right: 10px;\n     padding: 10px 20px;\n     border: none;\n     border-radius: 4px;\n     cursor: pointer;\n     \n-}\n+} */\n \n .adicionar{\n     height: 40px;\n }\n"
+                },
+                {
+                    "date": 1716894898317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,8 +51,9 @@\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n }\n \n+.in\n \n \n .input-cargo,\n .input-setor,\n"
+                },
+                {
+                    "date": 1716894904380,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,11 @@\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n }\n \n-.in\n+.input-cpf{\n+    \n+}\n \n \n .input-cargo,\n .input-setor,\n"
+                },
+                {
+                    "date": 1716894915285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n     box-sizing: border-box;\n }\n \n .input-cpf{\n-    \n+    border: solid 1px blue;\n }\n \n \n .input-cargo,\n"
+                },
+                {
+                    "date": 1716894950297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,9 +52,9 @@\n     box-sizing: border-box;\n }\n \n .input-cpf{\n-    border: solid 1px blue;\n+    border: solid 3px blue;\n }\n \n \n .input-cargo,\n"
+                },
+                {
+                    "date": 1716894991556,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,11 +51,11 @@\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n }\n \n-.input-cpf{\n+/* .input-cpf{\n     border: solid 3px blue;\n-}\n+} */\n \n \n .input-cargo,\n .input-setor,\n"
+                },
+                {
+                    "date": 1716895030746,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -65,24 +65,9 @@\n \n .input-senha {\n     width: auto;\n }\n-/* \n-.button-group {\n-    display: flex;\n-    flex-direction: row;\n-    margin-top: 10px;\n-    border: solid 1px red;\n-} */\n \n-/* .button-group button {\n-    margin-right: 10px;\n-    padding: 10px 20px;\n-    border: none;\n-    border-radius: 4px;\n-    cursor: pointer;\n-    \n-} */\n \n .adicionar{\n     height: 40px;\n }\n"
+                },
+                {
+                    "date": 1716895055779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -62,13 +62,11 @@\n .input-telefone {\n     width: 120%; \n }\n \n-.input-senha {\n-    width: auto;\n-}\n \n \n+\n .adicionar{\n     height: 40px;\n }\n \n"
+                },
+                {
+                    "date": 1716895070135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,22 +51,8 @@\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n }\n \n-/* .input-cpf{\n-    border: solid 3px blue;\n-} */\n-\n-\n-.input-cargo,\n-.input-setor,\n-.input-telefone {\n-    width: 120%; \n-}\n-\n-\n-\n-\n .adicionar{\n     height: 40px;\n }\n \n"
+                },
+                {
+                    "date": 1716895085666,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,9 +32,9 @@\n }\n \n .form-group {\n     margin-bottom: 20px;\n-    border: solid 1px red;\n+    border: solid 1px blue;\n }\n \n .form-group label {\n     display: block;\n"
+                },
+                {
+                    "date": 1716895094776,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,9 @@\n     border: solid 1px blue;\n }\n \n .form-group label {\n-    display: block;\n+\n     font-weight: bold;\n     margin-bottom: 5px;\n }\n \n"
+                },
+                {
+                    "date": 1716895104225,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,8 @@\n     border: solid 1px blue;\n }\n \n .form-group label {\n-\n     font-weight: bold;\n     margin-bottom: 5px;\n }\n \n"
+                },
+                {
+                    "date": 1716895116301,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,9 @@\n     padding: 8px;\n     border-radius: 4px;\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n+    ma\n }\n \n .adicionar{\n     height: 40px;\n"
+                },
+                {
+                    "date": 1716895145128,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,9 +48,8 @@\n     padding: 8px;\n     border-radius: 4px;\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n-    ma\n }\n \n .adicionar{\n     height: 40px;\n"
+                },
+                {
+                    "date": 1716897510531,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,15 +19,8 @@\n     padding: 20px;\n     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n }\n \n-h1 {\n-    font-size: 24px;\n-    font-weight: bold;\n-    text-align: center;\n-    margin-bottom: 20px;\n-}\n-\n .form-row {\n     display: flex;\n }\n \n"
+                },
+                {
+                    "date": 1716897537540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,12 +33,9 @@\n     font-weight: bold;\n     margin-bottom: 5px;\n }\n \n-.form-group input[type=\"text\"],\n-.form-group input[type=\"email\"],\n-.form-group input[type=\"password\"],\n-.form-group input[type=\"tel\"] {\n+.form-group input[type=\"text\"]{\n     padding: 8px;\n     border-radius: 4px;\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n"
+                },
+                {
+                    "date": 1716897544707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,9 +33,9 @@\n     font-weight: bold;\n     margin-bottom: 5px;\n }\n \n-.form-group input[type=\"text\"]{\n+input{\n     padding: 8px;\n     border-radius: 4px;\n     border: 1px solid #ccc;\n     box-sizing: border-box;\n"
+                },
+                {
+                    "date": 1716897550086,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -33,15 +33,8 @@\n     font-weight: bold;\n     margin-bottom: 5px;\n }\n \n-input{\n-    padding: 8px;\n-    border-radius: 4px;\n-    border: 1px solid #ccc;\n-    box-sizing: border-box;\n-}\n-\n .adicionar{\n     height: 40px;\n }\n \n"
+                },
+                {
+                    "date": 1716897651484,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n }\n \n .form-group {\n     margin-bottom: 20px;\n-    border: solid 1px blue;\n+    border: solid 1px red;\n }\n \n .form-group label {\n     font-weight: bold;\n"
+                },
+                {
+                    "date": 1716899543417,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,10 +24,9 @@\n     display: flex;\n }\n \n .form-group {\n-    margin-bottom: 20px;\n-    border: solid 1px red;\n+    margin-bottom: 20px;    border: solid 1px red;\n }\n \n .form-group label {\n     font-weight: bold;\n"
+                },
+                {
+                    "date": 1716899550993,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,10 @@\n     display: flex;\n }\n \n .form-group {\n-    margin-bottom: 20px;    border: solid 1px red;\n+    margin-bottom: 20px;\n+    border: solid 1px red;\n }\n \n .form-group label {\n     font-weight: bold;\n"
+                },
+                {
+                    "date": 1716904627522,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\n-@import url(\"colors.css\");\n+@import url(\"\");\n *{\n     font-family: 'Roboto',sans-serif;\n }\n \n"
+                },
+                {
+                    "date": 1716904641842,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\n-@import url(\"\");\n+\n+@import url(\"global.css\");\n *{\n     font-family: 'Roboto',sans-serif;\n }\n \n"
+                },
+                {
+                    "date": 1716904670087,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n+@import url(\"global.css\");\n \n-@import url(\"global.css\");\n *{\n     font-family: 'Roboto',sans-serif;\n }\n \n@@ -21,8 +21,9 @@\n }\n \n .form-row {\n     display: flex;\n+    border: solid 1px red;\n }\n \n .form-group {\n     margin-bottom: 20px;\n"
+                },
+                {
+                    "date": 1716904867601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,13 +23,13 @@\n .form-row {\n     display: flex;\n     border: solid 1px red;\n }\n-\n+/* \n .form-group {\n     margin-bottom: 20px;\n     border: solid 1px red;\n-}\n+} */\n \n .form-group label {\n     font-weight: bold;\n     margin-bottom: 5px;\n"
+                },
+                {
+                    "date": 1716980826284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,14 +22,15 @@\n \n .form-row {\n     display: flex;\n     border: solid 1px red;\n+    \n }\n-/* \n+\n .form-group {\n     margin-bottom: 20px;\n     border: solid 1px red;\n-} */\n+}\n \n .form-group label {\n     font-weight: bold;\n     margin-bottom: 5px;\n"
+                },
+                {
+                    "date": 1716980831462,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,10 +21,9 @@\n }\n \n .form-row {\n     display: flex;\n-    border: solid 1px red;\n-    \n+    border: solid 1px blue;\n }\n \n .form-group {\n     margin-bottom: 20px;\n"
+                },
+                {
+                    "date": 1716980842930,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,13 +18,13 @@\n     border-radius: 8px;\n     padding: 20px;\n     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n }\n-\n+/* \n .form-row {\n     display: flex;\n     border: solid 1px blue;\n-}\n+} */\n \n .form-group {\n     margin-bottom: 20px;\n     border: solid 1px red;\n"
+                },
+                {
+                    "date": 1716983122621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,14 +18,10 @@\n     border-radius: 8px;\n     padding: 20px;\n     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n }\n-/* \n-.form-row {\n-    display: flex;\n-    border: solid 1px blue;\n-} */\n \n+\n .form-group {\n     margin-bottom: 20px;\n     border: solid 1px red;\n }\n"
+                },
+                {
+                    "date": 1716983313889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,14 +3,14 @@\n *{\n     font-family: 'Roboto',sans-serif;\n }\n \n-.body {\n+/* .body {\n     font-family: Arial, sans-serif;\n     background-color: var(--branco);\n     margin: 0;\n     padding: 20px;\n-}\n+} */\n \n .container {\n     max-width: 1000px;\n     margin: 0 auto;\n"
+                },
+                {
+                    "date": 1716983322331,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,17 +1,7 @@\n @import url(\"global.css\");\n \n-*{\n-    font-family: 'Roboto',sans-serif;\n-}\n \n-/* .body {\n-    font-family: Arial, sans-serif;\n-    background-color: var(--branco);\n-    margin: 0;\n-    padding: 20px;\n-} */\n-\n .container {\n     max-width: 1000px;\n     margin: 0 auto;\n     background-color: #fff;\n"
+                },
+                {
+                    "date": 1716983330010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,8 +15,10 @@\n     margin-bottom: 20px;\n     border: solid 1px red;\n }\n \n+.\n+\n .form-group label {\n     font-weight: bold;\n     margin-bottom: 5px;\n }\n"
+                },
+                {
+                    "date": 1716983343262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n     margin-bottom: 20px;\n     border: solid 1px red;\n }\n \n-.\n+.form-row\n \n .form-group label {\n     font-weight: bold;\n     margin-bottom: 5px;\n"
+                },
+                {
+                    "date": 1716983350794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,12 @@\n     margin-bottom: 20px;\n     border: solid 1px red;\n }\n \n-.form-row\n+.form-row{\n+    display: flex;\n+    border: solid 1px red;\n+}\n \n .form-group label {\n     font-weight: bold;\n     margin-bottom: 5px;\n"
+                },
+                {
+                    "date": 1716983357560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n \n \n .form-group {\n     margin-bottom: 20px;\n-    border: solid 1px red;\n+    border: solid 1px blue;\n }\n \n .form-row{\n     display: flex;\n"
+                },
+                {
+                    "date": 1716983390056,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,8 +20,10 @@\n     display: flex;\n     border: solid 1px red;\n }\n \n+\n+\n .form-group label {\n     font-weight: bold;\n     margin-bottom: 5px;\n }\n"
+                },
+                {
+                    "date": 1716983400510,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,8 +22,9 @@\n }\n \n \n \n+\n .form-group label {\n     font-weight: bold;\n     margin-bottom: 5px;\n }\n"
+                },
+                {
+                    "date": 1716983409851,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,11 +20,11 @@\n     display: flex;\n     border: solid 1px red;\n }\n \n+.\n \n \n-\n .form-group label {\n     font-weight: bold;\n     margin-bottom: 5px;\n }\n"
+                },
+                {
+                    "date": 1716983417713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,11 @@\n     display: flex;\n     border: solid 1px red;\n }\n \n-.\n+.email-content{\n+    whi\n+}\n \n \n .form-group label {\n     font-weight: bold;\n"
+                },
+                {
+                    "date": 1716983429889,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,10 +20,10 @@\n     display: flex;\n     border: solid 1px red;\n }\n \n-.email-content{\n-    whi\n+.email-content,{\n+    width: 100%;\n }\n \n \n .form-group label {\n"
+                },
+                {
+                    "date": 1716983453840,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,11 +18,12 @@\n \n .form-row{\n     display: flex;\n     border: solid 1px red;\n+    justify-content: ;\n }\n \n-.email-content,{\n+.email-content,.cpf-content{\n     width: 100%;\n }\n \n \n"
+                },
+                {
+                    "date": 1716983499319,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,12 +18,13 @@\n \n .form-row{\n     display: flex;\n     border: solid 1px red;\n-    justify-content: ;\n+    justify-content: center;\n+    align-items: center;\n }\n \n-.email-content,.cpf-content{\n+.email-content,.cpf-content,.setor-content{\n     width: 100%;\n }\n \n \n"
+                },
+                {
+                    "date": 1716983508945,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,42 @@\n+@import url(\"global.css\");\n+\n+\n+.container {\n+    max-width: 1000px;\n+    margin: 0 auto;\n+    background-color: #fff;\n+    border-radius: 8px;\n+    padding: 20px;\n+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n+}\n+\n+\n+.form-group {\n+    margin-bottom: 20px;\n+    border: solid 1px blue;\n+}\n+\n+.form-row{\n+    display: flex;\n+    border: solid 1px red;\n+    justify-content: center;\n+    align-items: center;\n+}\n+\n+.email-content,.cpf-content,.setor-content,.telefone-content{\n+    width: 100%;\n+}\n+\n+\n+.form-group label {\n+    font-weight: bold;\n+    margin-bottom: 5px;\n+}\n+\n+.adicionar{\n+    height: 40px;\n+}\n+\n+\n+\n+\n"
+                },
+                {
+                    "date": 1716983520931,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,58 +27,16 @@\n     width: 100%;\n }\n \n \n-.form-group label {\n+/* .form-group label {\n     font-weight: bold;\n     margin-bottom: 5px;\n-}\n+} */\n \n .adicionar{\n     height: 40px;\n }\n \n \n \n \n-@import url(\"global.css\");\n-\n-\n-.container {\n-    max-width: 1000px;\n-    margin: 0 auto;\n-    background-color: #fff;\n-    border-radius: 8px;\n-    padding: 20px;\n-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n-}\n-\n-\n-.form-group {\n-    margin-bottom: 20px;\n-    border: solid 1px blue;\n-}\n-\n-.form-row{\n-    display: flex;\n-    border: solid 1px red;\n-    justify-content: center;\n-    align-items: center;\n-}\n-\n-.email-content,.cpf-content,.setor-content{\n-    width: 100%;\n-}\n-\n-\n-.form-group label {\n-    font-weight: bold;\n-    margin-bottom: 5px;\n-}\n-\n-.adicionar{\n-    height: 40px;\n-}\n-\n-\n-\n-\n"
+                },
+                {
+                    "date": 1716983564769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,17 +22,17 @@\n     justify-content: center;\n     align-items: center;\n }\n \n-.email-content,.cpf-content,.setor-content,.telefone-content{\n+.email-content,.cpf-content,.setor-content,.telefone-content,.{\n     width: 100%;\n }\n \n \n-/* .form-group label {\n+.form-group label {\n     font-weight: bold;\n     margin-bottom: 5px;\n-} */\n+}\n \n .adicionar{\n     height: 40px;\n }\n"
+                },
+                {
+                    "date": 1716983570362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     justify-content: center;\n     align-items: center;\n }\n \n-.email-content,.cpf-content,.setor-content,.telefone-content,.{\n+.email-content,.cpf-content,.setor-content,.telefone-content,{\n     width: 100%;\n }\n \n \n"
+                },
+                {
+                    "date": 1716983591132,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,13 @@\n     justify-content: center;\n     align-items: center;\n }\n \n-.email-content,.cpf-content,.setor-content,.telefone-content,{\n+.input-nome{\n+    \n+}\n+\n+.email-content,.cpf-content,.setor-content,.telefone-content{\n     width: 100%;\n }\n \n \n"
+                },
+                {
+                    "date": 1716983597620,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     align-items: center;\n }\n \n .input-nome{\n-    \n+    width: 80%;\n }\n \n .email-content,.cpf-content,.setor-content,.telefone-content{\n     width: 100%;\n"
+                },
+                {
+                    "date": 1716983615923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     justify-content: center;\n     align-items: center;\n }\n \n-.input-nome{\n+.input-nome,.input-email{\n     width: 80%;\n }\n \n .email-content,.cpf-content,.setor-content,.telefone-content{\n"
+                },
+                {
+                    "date": 1716983628935,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     justify-content: center;\n     align-items: center;\n }\n \n-.input-nome,.input-email{\n+.input-nome,.input-email,.input-cpf{\n     width: 80%;\n }\n \n .email-content,.cpf-content,.setor-content,.telefone-content{\n"
+                },
+                {
+                    "date": 1716983653555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     justify-content: center;\n     align-items: center;\n }\n \n-.input-nome,.input-email,.input-cpf{\n+.input-nome,.input-email,.input-cpf,.input-setor{\n     width: 80%;\n }\n \n .email-content,.cpf-content,.setor-content,.telefone-content{\n"
+                },
+                {
+                    "date": 1716983664283,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     justify-content: center;\n     align-items: center;\n }\n \n-.input-nome,.input-email,.input-cpf,.input-setor{\n+.input-nome,.input-email,.input-cpf,.input-setor,.input-telefone{\n     width: 80%;\n }\n \n .email-content,.cpf-content,.setor-content,.telefone-content{\n"
+                },
+                {
+                    "date": 1716983705410,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,8 +25,9 @@\n \n .input-nome,.input-email,.input-cpf,.input-setor,.input-telefone{\n     width: 80%;\n }\n+.\n \n .email-content,.cpf-content,.setor-content,.telefone-content{\n     width: 100%;\n }\n"
+                },
+                {
+                    "date": 1716983711309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,11 @@\n \n .input-nome,.input-email,.input-cpf,.input-setor,.input-telefone{\n     width: 80%;\n }\n-.\n+.input-senha{\n+    wh\n+}\n \n .email-content,.cpf-content,.setor-content,.telefone-content{\n     width: 100%;\n }\n"
+                },
+                {
+                    "date": 1716983718205,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,9 +26,9 @@\n .input-nome,.input-email,.input-cpf,.input-setor,.input-telefone{\n     width: 80%;\n }\n .input-senha{\n-    wh\n+    width: 40%;\n }\n \n .email-content,.cpf-content,.setor-content,.telefone-content{\n     width: 100%;\n"
+                },
+                {
+                    "date": 1716983728052,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     align-items: center;\n }\n \n .input-nome,.input-email,.input-cpf,.input-setor,.input-telefone{\n-    width: 80%;\n+    width: 90%;\n }\n .input-senha{\n     width: 40%;\n }\n"
+                },
+                {
+                    "date": 1716983736011,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,9 +23,9 @@\n     align-items: center;\n }\n \n .input-nome,.input-email,.input-cpf,.input-setor,.input-telefone{\n-    width: 90%;\n+    width: 80%;\n }\n .input-senha{\n     width: 40%;\n }\n"
+                },
+                {
+                    "date": 1716983761336,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     justify-content: center;\n     align-items: center;\n }\n \n-.input-nome,.input-email,.input-cpf,.input-setor,.input-telefone{\n+.input-email,.input-cpf,.input-setor,.input-telefone{\n     width: 80%;\n }\n .input-senha{\n     width: 40%;\n"
+                },
+                {
+                    "date": 1716983767370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,11 @@\n     border: solid 1px red;\n     justify-content: center;\n     align-items: center;\n }\n-\n+.input-nome{\n+    \n+}\n .input-email,.input-cpf,.input-setor,.input-telefone{\n     width: 80%;\n }\n .input-senha{\n"
+                },
+                {
+                    "date": 1716983774394,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n     justify-content: center;\n     align-items: center;\n }\n .input-nome{\n-    \n+    width: 90%;\n }\n .input-email,.input-cpf,.input-setor,.input-telefone{\n     width: 80%;\n }\n"
+                },
+                {
+                    "date": 1716983783440,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,8 @@\n }\n \n .form-row{\n     display: flex;\n-    border: solid 1px red;\n     justify-content: center;\n     align-items: center;\n }\n .input-nome{\n"
+                },
+                {
+                    "date": 1716983934582,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,8 @@\n \n \n .form-group {\n     margin-bottom: 20px;\n-    border: solid 1px blue;\n }\n \n .form-row{\n     display: flex;\n@@ -40,11 +39,8 @@\n     font-weight: bold;\n     margin-bottom: 5px;\n }\n \n-.adicionar{\n-    height: 40px;\n-}\n \n \n \n \n"
+                },
+                {
+                    "date": 1716983943357,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,8 +39,11 @@\n     font-weight: bold;\n     margin-bottom: 5px;\n }\n \n+.button-group{\n+    margin-right: 50px;\n+}\n \n \n \n \n"
+                },
+                {
+                    "date": 1716983948390,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n     margin-bottom: 5px;\n }\n \n .button-group{\n-    margin-right: 50px;\n+    margin-right: 100px;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1716983958332,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,8 @@\n     padding: 20px;\n     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n }\n \n-\n .form-group {\n     margin-bottom: 20px;\n }\n \n@@ -40,9 +39,9 @@\n     margin-bottom: 5px;\n }\n \n .button-group{\n-    margin-right: 100px;\n+    margin-right: 120px;\n }\n \n \n \n"
+                },
+                {
+                    "date": 1716984140147,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,9 @@\n .form-row{\n     display: flex;\n     justify-content: center;\n     align-items: center;\n+    ma\n }\n .input-nome{\n     width: 90%;\n }\n"
+                },
+                {
+                    "date": 1716984145382,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,9 @@\n .form-row{\n     display: flex;\n     justify-content: center;\n     align-items: center;\n-    ma\n+    margin-bottom: 5px;\n }\n .input-nome{\n     width: 90%;\n }\n"
+                },
+                {
+                    "date": 1716984152802,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,9 +17,8 @@\n .form-row{\n     display: flex;\n     justify-content: center;\n     align-items: center;\n-    margin-bottom: 5px;\n }\n .input-nome{\n     width: 90%;\n }\n"
+                }
+            ],
+            "date": 1716893694936,
+            "name": "Commit-0",
+            "content": "@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');\n@import url(\"colors.css\");\n*{\n    font-family: 'Roboto',sans-serif;\n}\n\n.body {\n    font-family: Arial, sans-serif;\n    background-color: var(--branco);\n    margin: 0;\n    padding: 20px;\n}\n\n.container {\n    max-width: 1000px;\n    margin: 0 auto;\n    background-color: #fff;\n    border-radius: 8px;\n    padding: 20px;\n    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);\n}\n\nh1 {\n    font-size: 24px;\n    font-weight: bold;\n    text-align: center;\n    margin-bottom: 20px;\n}\n\n.form-row {\n    display: flex;\n    justify-content: space-between;\n}\n\n.form-group {\n    margin-bottom: 20px;\n}\n\n.form-group label {\n    display: block;\n    font-weight: bold;\n    margin-bottom: 5px;\n}\n\n.form-group input[type=\"text\"],\n.form-group input[type=\"email\"],\n.form-group input[type=\"password\"],\n.form-group input[type=\"tel\"] {\n    padding: 8px;\n    border-radius: 4px;\n    border: 1px solid #ccc;\n    box-sizing: border-box;\n}\n\n.input-nome {\n    width: 100%; /* Largura padrão */\n}\n\n.input-email {\n    width: ; /* Ajuste o tamanho conforme necessário */\n}\n\n.input-cpf {\n    width: 400px; /* Ajuste o tamanho conforme necessário */\n}\n\n.input-cargo,\n.input-setor,\n.input-telefone {\n    width: 300px; \n}\n\n.input-senha {\n    width: auto;\n}\n\n.button-group {\n    display: flex;\n    flex-direction: row;\n    margin-top: 10px;\n    margin-left: 74%;\n}\n\n.button-group button {\n    margin-right: 10px;\n    padding: 10px 20px;\n    border: none;\n    border-radius: 4px;\n    cursor: pointer;\n    \n}\n\n.adicionar{\n    height: 40px;\n}\n\n\n\n\n"
+        }
+    ]
+}
